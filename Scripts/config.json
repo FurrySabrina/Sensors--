@@ -1,0 +1,58 @@
+{
+    
+    /*
+
+        This is the config file for the sensors.
+        The keys are the level of the sensor.
+        The values are the settings for the sensor.
+
+        distance: The game built in distance limit of the sensor.
+        detect_color: If the sensor can detect color.
+        upgrade: The uuid of the upgraded sensor.
+
+    */
+
+    // Level 1 Sensor
+    "1": {
+        "distance": 4,
+        "detect_color": false,
+        "upgrade": "cf46678b-c947-4267-ba85-f66930f5faa4",
+        "upgrade_cost": 1,
+        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+    },
+
+    // Level 2 Sensor
+    "2": {
+        "distance": 8,
+        "detect_color": false,
+        "upgrade": "90fc3603-3544-4254-97ef-ea6723510961",
+        "upgrade_cost": 1,
+        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+    },
+
+    // Level 3 Sensor
+    "3": {
+        "distance": 12,
+        "detect_color": false,
+        "upgrade": "de018bc6-1db5-492c-bfec-045e63f9d64b",
+        "upgrade_cost": 1,
+        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+    },
+
+    // Level 4 Sensor
+    "4": {
+        "distance": 16,
+        "detect_color": false,
+        "upgrade": "20dcd41c-0a11-4668-9b00-97f278ce21af",
+        "upgrade_cost": 3,
+        "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9eRange: #cff42b+4"
+    },
+
+    // Level 5 Sensor
+    "5": {
+        "distance": 20,
+        "detect_color": true
+        // no upgrade for this since its level 5 (max)
+    }
+
+}

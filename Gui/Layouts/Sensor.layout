@@ -1,0 +1,128 @@
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Widget" skin="PanelEmpty" name="ContentPanel" position_real="0.3234375 0.12777777777777777 0.3536458333333333 0.6388888888888888">
+		<Property key="NeedKey" value="false" />
+		<Property key="NeedMouse" value="true" />
+		<Property key="InheritsAlpha" value="false" />
+		<Widget type="Widget" skin="BackgroundSensor" name="UpgradeBackground" position_real="0 0 1.0014727540500736 1">
+			<Property key="Visible" value="false" />
+		</Widget>
+		<Widget type="Widget" skin="BackgroundSensorNoUpgrade" name="NoUpgradeBackground" position_real="0 0 1.0014727540500736 0.8115942028985508" />
+		<Widget type="TextBox" skin="TextBox" name="Name" position_real="0 0.06521739130434782 1 0.05652173913043478">
+			<Property key="Caption" value="#{CONTROLLER_SENSOR_TITLE}" />
+			<Property key="FontName" value="SM_HeaderLarge_Wide" />
+			<Property key="TextAlign" value="Center" />
+		</Widget>
+		<Widget type="ImageBox" skin="ImageBox" name="Icon" position_real="0.4108983799705449 0.23623188405797102 0.17673048600883653 0.17391304347826086">
+			<Property key="ImageResource" value="ItemIconsSetSurvival0" />
+			<Property key="ImageName" value="1d4793af-cb66-4628-804a-9d7404712643" />
+		</Widget>
+		<Widget type="TextBox" skin="TextBox" name="SubTitle" position_real="0 0.14057971014492754 1 0.043478260869565216">
+			<Property key="TextAlign" value="Center" />
+			<Property key="TextColour" value="1 0.803922 0.247059" />
+			<Property key="FontName" value="SM_SubHeader" />
+			<Property key="Caption" value="#{LEVEL} 1" />
+		</Widget>
+		<Widget type="Widget" skin="PanelEmpty" name="UpgradeContainer" position_real="0 0 1.0014727540500736 1">
+			<Property key="Visible" value="false" />
+			<Widget type="Button" skin="UpgradeButton" name="Upgrade" position_real="0.7544117647058823 0.8521739130434782 0.19852941176470587 0.1">
+				<Property key="FontName" value="Default" />
+				<Widget type="TextBox" skin="TextBox" position_real="0.1111111111111111 0.18840579710144928 0.7777777777777778 0.2608695652173913">
+					<Property key="Caption" value="#{CONTROLLER_UPGRADE}" />
+					<Property key="TextAlign" value="Center" />
+					<Property key="FontName" value="SM_ButtonTiny" />
+					<Property key="NeedMouse" value="false" />
+				</Widget>
+				<Widget type="TextBox" skin="TextBox" name="UpgradeCost" position_real="0.4444444444444444 0.463768115942029 0.4444444444444444 0.2608695652173913">
+					<Property key="FontName" value="SM_NumberMini" />
+					<Property key="TextAlign" value="Left VCenter" />
+					<Property key="Caption" value="#cff42b* #9f9e9e/ 1" />
+					<Property key="NeedMouse" value="false" />
+				</Widget>
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.2814814814814815 0.463768115942029 0.14074074074074075 0.2898550724637681">
+					<Property key="ImageTexture" value="gui_icon_components.png" />
+					<Property key="NeedMouse" value="false" />
+				</Widget>
+			</Widget>
+			<Widget type="ImageBox" skin="ImageBox" name="UpgradeIcon" position_real="0.04852941176470588 0.8376811594202899 0.1161764705882353 0.1144927536231884">
+				<Property key="ImageResource" value="ItemIconsSetSurvival0" />
+				<Property key="ImageName" value="cf46678b-c947-4267-ba85-f66930f5faa4" />
+				<Widget type="ImageBox" skin="ImageBox" position_real="0.620253164556962 0.4936708860759494 0.379746835443038 0.5063291139240507">
+					<Property key="ImageTexture" value="gui_icon_upgrade.png" />
+				</Widget>
+			</Widget>
+			<Widget type="EditBox" skin="EditBoxEmpty" name="UpgradeInfo" position_real="0.21764705882352942 0.8376811594202899 0.2647058823529412 0.1144927536231884">
+				<Property key="Caption" value="Range #cff42b+4" />
+				<Property key="TextAlign" value="Left VCenter" />
+				<Property key="FontName" value="SM_LabelTiny" />
+				<Property key="WordWrap" value="true" />
+				<Property key="Static" value="true" />
+				<Property key="ReadOnly" value="true" />
+				<Property key="MultiLine" value="true" />
+				<Property key="TextColour" value="#9f9e9e" />
+			</Widget>
+		</Widget>
+		<Widget type="TextBox" skin="TextBox" position_real="0.0662739322533137 0.463768115942029 0.08100147275405008 0.036231884057971016">
+			<Property key="Caption" value="#{CONTROLLER_PISTON_RANGE}" />
+			<Property key="TextAlign" value="Left VCenter" />
+			<Property key="FontName" value="SM_TextLabel" />
+		</Widget>
+		<Widget type="Button" skin="ToggleButton" name="Open_Settings" position_real="0.05154639175257732 0.6014492753623188 0.898379970544919 0.08695652173913043">
+			<Property key="Caption" value="@{OPEN_SENSORS_PLUSPLUS_SETTINGS}" />
+			<Property key="FontName" value="SM_Header" />
+			<Property key="TextAlign" value="Center" />
+		</Widget>
+		<Widget type="Widget" skin="SearchBarBackground" position_real="0.05891016200294551 0.5072463768115942 0.8836524300441826 0.050724637681159424">
+			<Property key="Caption" value="Range" />
+			<Property key="TextAlign" value="Center" />
+			<Property key="FontName" value="SM_Header" />
+			<Property key="ReadOnly" value="false" />
+			<Widget type="EditBox" skin="EditBoxEmpty" name="Range" position_real="0.075 0 0.85 1">
+				<Property key="Caption" value="696" />
+				<Property key="FontName" value="SM_Header" />
+				<Property key="TextAlign" value="Center" />
+				<Property key="MultiLine" value="false" />
+				<Property key="ReadOnly" value="false" />
+				<Property key="Static" value="false" />
+				<Property key="OverflowToTheLeft" value="false" />
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" name="Range_Lower" position_real="0 0 0.075 1">
+				<Property key="Caption" value="1" />
+				<Property key="TextAlign" value="Center" />
+				<Property key="FontName" value="SM_HeaderSmall" />
+				<Property key="ReadOnly" value="false" />
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" name="Range_Upper" position_real="0.925 0 0.075 1">
+				<Property key="Caption" value="999" />
+				<Property key="TextAlign" value="Center" />
+				<Property key="FontName" value="SM_HeaderSmall" />
+				<Property key="ReadOnly" value="false" />
+			</Widget>
+		</Widget>
+		<Widget type="Button" skin="SettingsButton" name="Setting_Switch" position_real="0.05154639175257732 0.6811594202898551 0.18409425625920472 0.057971014492753624">
+			<Property key="Caption" value="#{CONTROLLER_SENSOR_MODE_SWITCH}" />
+			<Property key="FontName" value="SM_ButtonTiny" />
+			<Property key="TextAlign" value="Center" />
+		</Widget>
+		<Widget type="Button" skin="SettingsButton" name="Setting_Sound" position_real="0.22827687776141384 0.6811594202898551 0.18409425625920472 0.057971014492753624">
+			<Property key="Caption" value="#{CONTROLLER_SENSOR_SOUND}" />
+			<Property key="FontName" value="SM_ButtonTiny" />
+			<Property key="TextAlign" value="Center" />
+		</Widget>
+		<Widget type="Button" skin="SettingsButton" name="Setting_Color" position_real="0.4050073637702504 0.6811594202898551 0.18409425625920472 0.057971014492753624">
+			<Property key="Caption" value="#{CONTROLLER_SENSOR_COLOR}" />
+			<Property key="FontName" value="SM_ButtonTiny" />
+			<Property key="TextAlign" value="Center" />
+		</Widget>
+	</Widget>
+	<Widget type="Widget" skin="BackgroundSensorColorSelect" name="ColorSelectPanel" position_real="0.6875 0.12777777777777777 0.15625 0.5277777777777778">
+		<Property key="Visible" value="false" />
+		<Widget type="TextBox" skin="TextBox" position_real="0 0.07368421052631578 1 0.08421052631578947">
+			<Property key="Caption" value="#{CONTROLLER_SENSOR_COLOR_PICKER_TITLE_1}\n#{CONTROLLER_SENSOR_COLOR_PICKER_TITLE_2}" />
+			<Property key="TextAlign" value="Center" />
+			<Property key="FontName" value="SM_SubHeader" />
+			<Property key="TextColour" value="1 1 1" />
+			<Property key="NeedMouse" value="false" />
+		</Widget>
+		<Widget type="ItemBox" skin="InventoryItemBox2" name="ColorList" position_real="0.08 0.23684210526315788 0.84 0.7052631578947368" />
+	</Widget>
+</MyGUI>

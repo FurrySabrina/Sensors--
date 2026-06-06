@@ -1,0 +1,158 @@
+{
+    "partList": [
+        {
+
+            // Override for the level 1 Sensor
+			"uuid": "1d4793af-cb66-4628-804a-9d7404712643",
+			"name": "obj_interactive_sensor_01",
+			"renderable": "$CONTENT_DATA/Objects/Renderable/sensor01.rend",
+			"color": "#df7f01",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"scripted": {
+                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "classname": "sensor",
+                "data": {
+                    "level": 1
+                }
+            },
+			"rotationSet": "PropZY",
+			"sticky": "+Y-Y-Z+X-X",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 3,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": true
+		},
+		{
+			"uuid": "cf46678b-c947-4267-ba85-f66930f5faa4",
+			"name": "obj_interactive_sensor_02",
+			"renderable": "$CONTENT_DATA/Objects/Renderable/sensor02.rend",
+			"color": "#df7f01",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"scripted": {
+                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "classname": "sensor",
+                "data": {
+                    "level": 2
+                }
+            },
+			"rotationSet": "PropZY",
+			"sticky": "+Y-Y-Z+X-X",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 4,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": true
+		},
+		{
+			"uuid": "90fc3603-3544-4254-97ef-ea6723510961",
+			"name": "obj_interactive_sensor_03",
+			"renderable": "$CONTENT_DATA/Objects/Renderable/sensor03.rend",
+			"color": "#df7f01",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"scripted": {
+                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "classname": "sensor",
+                "data": {
+                    "level": 3
+                }
+            },
+			"rotationSet": "PropZY",
+			"sticky": "+Y-Y-Z+X-X",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 5,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": true
+		},
+		{
+			"uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b",
+			"name": "obj_interactive_sensor_04",
+			"renderable": "$CONTENT_DATA/Objects/Renderable/sensor04.rend",
+			"color": "#df7f01",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"scripted": {
+                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "classname": "sensor",
+                "data": {
+                    "level": 4
+                }
+            },
+			"rotationSet": "PropZY",
+			"sticky": "+Y-Y-Z+X-X",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 5,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": false
+		},
+		{
+			"uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af",
+			"name": "obj_interactive_sensor_05",
+			"renderable": "$CONTENT_DATA/Objects/Renderable/sensor05.rend",
+			"color": "#df7f01",
+			"box": {
+				"x": 1,
+				"y": 1,
+				"z": 1
+			},
+			"scripted": {
+                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "classname": "sensor",
+                "data": {
+                    "level": 5
+                }
+            },
+			"rotationSet": "PropZY",
+			"sticky": "+Y-Y-Z+X-X",
+			"physicsMaterial": "Plastic",
+			"ratings": {
+				"density": 3,
+				"durability": 7,
+				"friction": 5,
+				"buoyancy": 2
+			},
+			"flammable": false
+		},
+        {
+            "uuid": "4e795e15-c066-4043-9b83-e2087e345854",
+            "name": "obj_interactive_sensor_indicator",
+            "renderable": "$CONTENT_DATA/Objects/Renderable/sensor_indicator.rend",
+            "color": "#00ffff",
+            "box": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+            },
+            "showInInventory": false
+        }
+    ]
+}

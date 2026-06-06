@@ -1,0 +1,347 @@
+{
+    // Exclude cache files from being indexed
+    "files.exclude": {
+        //"**/Cache": true
+    },
+    // fixes files to properly convert into proper languages
+    "files.associations": {
+        "*.json": "jsonc", // fixes json being interpreted as jsonc because SM supports jsonc
+        "*.rend": "jsonc",
+        "*.blueprint": "jsonc",
+        "*.effectset": "jsonc",
+        "*.effectdb": "jsonc",
+        "*.layout": "xml",
+        "*.harvestableset": "jsonc",
+        "*.harvestabledb": "jsonc",
+        "*.kinematicset": "jsonc",
+        "*.kinematicdb": "jsonc",
+        "*.shapeset": "jsonc",
+        "*.rotationset": "jsonc",
+        "*.shapedb": "jsonc",
+        "*.projectileset": "jsonc",
+        "*.sobset": "jsonc",
+        "*.sobdb": "jsonc",
+        "*.world": "jsonc",
+        "*.toolset": "jsonc",
+        "*.tooldb": "jsonc",
+    },
+    "material-icon-theme.folders.color": "#df7f00",
+    "material-icon-theme.files.color": "#df7f00",
+    "material-icon-theme.folders.theme": "specific",
+    "material-icon-theme.files.associations": {
+        // Renderable files
+        "*.rend": "rend", // rend
+
+        // MTL files
+        "*.mtl": "3d",
+        
+        // Blueprints JSONs
+        "*.blueprint": "blueprint",
+
+        // TCO Compressed Textures
+        "*.tco": "image",
+
+        // Characters JSONs
+        "*.characterset": "characterset",
+        "*.characterdb": "characterdb",
+
+        // Effects JSONs
+        "*.effectset": "effectset",
+        "*.effectdb": "effectdb",
+
+        // Layouts
+        "*.layout": "layout",
+
+        // Harvestables
+        "*.harvestableset": "harvestableset",
+        "*.harvestabledb": "harvestabledb",
+
+        // Kinematics
+        "*.kinematicset": "kinematicset",
+        "*.kinematicdb": "kinematicdb",
+
+        // Objects
+        "*.shapeset": "shapeset",
+        "*.rotationset": "rotationset",
+        "*.shapedb": "shapedb",
+
+        // Particles
+        "particles.json": "particles",
+
+        // Prefabs
+        "*.prefab": "prefab",
+
+        // Projectiles
+        "*.projectileset": "projectileset",
+
+        // Scriptable Objects
+        "*.sobset": "sobset",
+        "*.sobdb": "sobdb",
+
+        // Terrain
+        "*.assetset": "assetset",
+        "*.assetdb": "assetdb",
+        "*.tile": "tile",
+        "*.tile.export": "tile-export",
+        "*.world": "world",
+
+        // Tools
+        "*.toolset": "toolset",
+        "*.tooldb": "tooldb",
+
+        // Description
+        "description.json": "description",
+    },
+    "material-icon-theme.files.customClones": [
+        // VSCode
+        {
+            "name": "VSCode settings",
+            "base": "vscode",
+            "color": "light-blue-800",
+            "fileNames": [".vscode/settings.json"]
+        }
+    ],
+    "material-icon-theme.folders.customClones": [
+
+        // Accidental iconed folders
+        {
+            "name": "Accidentally iconed folders",
+            "base": "folder",
+            "color": "#df7f00",
+            "lightColor": "#df7f00",
+            "folderNames": ["moon", "torch", "game","managers"]
+        },
+    ],
+    "material-icon-theme.languages.customClones": [
+
+        // Renderable files
+        {
+            "name": "rend",
+            "base": "json",
+            "color": "red-300",
+            "lightColor": "red-700",
+            "ids": ["rend"]
+        },
+
+        // Blueprints JSONs
+        {
+            "name": "blueprint",
+            "base": "json",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["blueprint"]
+        },
+
+        // Characters
+        {
+            "name": "characterset",
+            "base": "json",
+            "color": "deep-purple-300",
+            "lightColor": "deep-purple-700",
+            "ids": ["character"]
+        },
+        {
+            "name": "characterdb",
+            "base": "database",
+            "color": "deep-purple-300",
+            "lightColor": "deep-purple-700",
+            "ids": ["characterdb"]
+        },
+
+        // Effects
+        {
+            "name": "effectset",
+            "base": "json",
+            "color": "pink-300",
+            "lightColor": "pink-700",
+            "ids": ["effectset"]
+        },
+        {
+            "name": "effectdb",
+            "base": "database",
+            "color": "pink-300",
+            "lightColor": "pink-700",
+            "ids": ["effectdb"]
+        },
+
+        // Layouts
+        {
+            "name": "layout",
+            "base": "xml",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["layout"]
+        },
+
+        // Harvestable
+        {
+            "name": "harvestableset",
+            "base": "json",
+            "color": "light-green-500",
+            "lightColor": "light-green-700",
+            "ids": ["harvestableset"]
+        },
+        {
+            "name": "harvestabledb",
+            "base": "database",
+            "color": "light-green-500",
+            "lightColor": "light-green-700",
+            "ids": ["harvestabledb"]
+        },
+
+        // Kinematics
+        {
+            "name": "kinematicset",
+            "base": "json",
+            "color": "purple-300",
+            "lightColor": "purple-700",
+            "ids": ["kinematicset"]
+        },
+        {
+            "name": "kinematicdb",
+            "base": "database",
+            "color": "purple-300",
+            "lightColor": "purple-700",
+            "ids": ["kinematicdb"]
+        },
+
+        // Objects
+        {
+            "name": "shapeset",
+            "base": "json",
+            "color": "orange-300",
+            "lightColor": "orange-700",
+            "ids": ["shapeset"]
+        },
+        {
+            "name": "rotationset",
+            "base": "3d",
+            "color": "red-300",
+            "lightColor": "red-700",
+            "ids": ["rotationset"]
+        },
+        {
+            "name": "shapedb",
+            "base": "database",
+            "color": "orange-300",
+            "lightColor": "orange-700",
+            "ids": ["shapedb"]
+        },
+
+        // Particles
+        {
+            "name": "particles",
+            "base": "json",
+            "color": "yellow-300",
+            "lightColor": "yellow-700",
+            "ids": ["particles"]
+        },
+
+        // Prefabs
+        {
+            "name": "prefab",
+            "base": "3d",
+            "color": "#df7f00",
+            "lightColor": "#df7f00",
+            "ids": ["prefab"]
+        },
+
+        // Projectiles
+        {
+            "name": "projectileset",
+            "base": "json",
+            "color": "deep-orange-300",
+            "lightColor": "deep-orange-700",
+            "ids": ["projectileset"]
+        },
+
+        // Scriptable Objects
+        {
+            "name": "sobset",
+            "base": "json",
+            "color": "indigo-300",
+            "lightColor": "indigo-700",
+            "ids": ["sobset"]
+        },
+        {
+            "name": "sobdb",
+            "base": "database",
+            "color": "indigo-300",
+            "lightColor": "indigo-700",
+            "ids": ["sobdb"]
+        },
+
+        // Terrain
+        {
+            "name": "assetset",
+            "base": "json",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["assetset"]
+        },
+        {
+            "name": "assetdb",
+            "base": "database",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["assetdb"]
+        },
+        {
+            "name": "tile",
+            "base": "database",
+            "color": "teal-300",
+            "lightColor": "teal-700",
+            "ids": ["tile"]
+        },
+        {
+            "name": "tile-export",
+            "base": "settings",
+            "color": "teal-300",
+            "lightColor": "teal-700",
+            "ids": ["tile-export"]
+        },
+        {
+            "name": "world",
+            "base": "json",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["world"]
+        },
+
+        // Tools
+        {
+            "name": "toolset",
+            "base": "json",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["toolset"]
+        },
+        {
+            "name": "tooldb",
+            "base": "database",
+            "color": "light-blue-300",
+            "lightColor": "light-blue-700",
+            "ids": ["tooldb"]
+        
+        },
+
+        // Description
+        {
+            "name": "description",
+            "base": "settings",
+            "color": "gray-300",
+            "lightColor": "gray-700",
+            "ids": ["description"]
+        }
+        
+    ],
+    "Lua.diagnostics.disable": [
+        "lowercase-global",
+        "deprecated",
+        "inject-field",
+        "undefined-field"
+    ],
+    "Lua.diagnostics.globals": [
+        "modDirectory"
+    ]
+}

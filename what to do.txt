@@ -1,0 +1,8 @@
+Remake old sensors to be more efficient
+Could make a global variable for how fast it scans, default once per tick (40 ticks per second)
+Or i could always make it so that it can calculate math to run even fast than every tick if needed.
+
+Make sensors output to interactables that are the same color as scanned object (toggle)
+Make a way to extract R, G, B from a object into seperate interactables, maybe could make it act like the first one but only works when the block is R255, G0, B0 (toggle)
+
+Make U to open the sensors++ settings menu.

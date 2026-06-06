@@ -1,0 +1,32 @@
+	{
+	"lodList": [
+		{
+			"minViewSize": 17,
+			"mesh": "$CONTENT_DATA/Objects/Mesh/sensor.fbx",
+			"subMeshMap": {
+				"submesh0": {
+					"material": "DifAsgNor",
+					"textureList": [
+						"$CONTENT_DATA/Objects/Textures/sensor_04_dif.png",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_04_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_04_nor.tga"
+					]
+				}
+			}
+		},
+		{
+			"minViewSize": 300,
+			"mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_sensor_lod1.fbx",
+			"subMeshMap": {
+				"submesh0": {
+					"material": "DifAsgNor",
+					"textureList": [
+						"$CONTENT_DATA/Objects/Textures/sensor_04_dif.png",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_04_asg.tga",
+						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_04_nor.tga"
+					]
+				}
+			}
+		}
+	]
+}

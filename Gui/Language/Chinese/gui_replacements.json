@@ -1,0 +1,4 @@
+{
+    // because the game uses #{...} for translations, im going to use @{...} instead
+    "@{OPEN_SENSORS_PLUSPLUS_SETTINGS}": "打开 Sensors++ 设置"
+}

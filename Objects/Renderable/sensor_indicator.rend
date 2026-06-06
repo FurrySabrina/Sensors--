@@ -1,0 +1,18 @@
+{
+    "lodList": [
+        {
+            "minViewSize": 17,
+            "mesh": "$CONTENT_DATA/Objects/Mesh/sensor_indicator.fbx",
+            "subMeshMap": {
+                "submesh0": {
+                    "material": "DifAsgNor",
+                    "textureList": [
+                        "$CONTENT_DATA/Objects/Textures/sensor_indicator_dif.png",
+                        "$CONTENT_DATA/Objects/Textures/sensor_indicator_asg.png",
+                        "$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_01_nor.tga"
+                    ]
+                }
+            }
+        }
+    ]
+}
