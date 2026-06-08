@@ -1,6 +1,7 @@
 gui = {}
 
-local replacements = {}
+local replacements = safe_json_open(modDirectory .. "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
+local current_language = sm.gui.getCurrentLanguage()
 local english_data = safe_json_open(modDirectory .. "/Gui/Language/English/gui_replacements.json") or {}
 
 --- Attempts to get a replacement for a key.
@@ -51,16 +52,9 @@ end
 --- @param self ShapeClass The sensor class
 --- @param is_open boolean Whether the GUI is open or not.
 function gui.init(self, is_open)
-    replacements = safe_json_open(modDirectory ..
-        "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
-    if next(replacements) == nil then
-        sm.log.warning("No replacements found for language: " ..
-            sm.gui.getCurrentLanguage() .. ". Using English fallback.")
-    end
-
     if self.cl.gui and sm.exists(self.cl.gui.interface) then
-        self.cl.gui.interface:close()
-        self.cl.gui.interface:destroy()
+        gui.refresh(self, is_open) -- pass it off to the refresh function instead of doing it here
+        return
     end
 
     self.cl.gui = {}
@@ -102,6 +96,10 @@ function gui.init(self, is_open)
         interface:setIconImage("UpgradeIcon", sm.uuid.new(self.data.upgrade_uuid))
     end
 
+    if not self.data.detect_color then
+        interface:setVisible("Setting_Color", false)
+    end
+
     gui.loadText(self)
 
     if is_open then
@@ -112,11 +110,20 @@ end
 --- Refreshes the GUI.
 --- @param self ShapeClass The sensor class
 function gui.refresh(self, is_open)
-    replacements = safe_json_open(modDirectory ..
-        "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
-    if next(replacements) == nil then
-        sm.log.warning("No replacements found for language: " ..
-            sm.gui.getCurrentLanguage() .. ". Using English fallback.")
+
+    if is_open then
+        goto open
+    end
+
+    if not self.cl.gui.is_open then
+        return
+    end
+
+    ::open::
+
+    if current_language ~= sm.gui.getCurrentLanguage() then
+        replacements = safe_json_open(modDirectory .. "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
+        current_language = sm.gui.getCurrentLanguage()
     end
 
     local interface = self.cl.gui.interface
@@ -153,7 +160,6 @@ function sensor:client_onGuiButtonPress(button)
     local interface = self.cl.gui.interface
 
     if button == "Upgrade" then
-        print("attempting to upgrade")
         self.network:sendToServer("server_requestUpgrade")
     end
 end
@@ -161,10 +167,5 @@ end
 --- Opens the gui.
 --- @param self ShapeClass The sensor classe
 function gui.open(self)
-    print(self.cl.gui)
-    if not self.cl.gui.interface then
-        gui.init(self, true)
-    else
-        gui.refresh(self, true)
-    end
+    gui.init(self, true)
 end

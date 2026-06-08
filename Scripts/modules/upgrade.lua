@@ -30,8 +30,6 @@ end
 --- Sucessfually upgrades the sensor (client side).
 --- @param self ShapeClass The sensor class
 function sensor:client_upgraded()
-
-    print(self.data.uuid)
     
     local interface = self.cl.gui.interface
     interface:playEffect("Icon", "Gui - UpgradeIcon", true)

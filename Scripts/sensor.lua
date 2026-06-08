@@ -14,6 +14,11 @@ sensor.poseWeightCount = 1
 -- self.interactable:setPoseWeight( 0, weight(0-1) ) this is how you set the active pose
 
 modDirectory = "$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2"
+local config_data = safe_json_open(modDirectory .. "/Scripts/config.json")
+
+if not config_data then
+    error("Config file not found")
+end
 
 -------------   Modules   ------------
 
@@ -32,14 +37,10 @@ end
 -------------   Server   -------------
 
 function sensor:server_onCreate()
-    print("sensor created")
     self.sv = {}
     self.sv.host = nil -- always the host of the world
 
-    self.data = safe_json_open(modDirectory .. "/Scripts/config.json")[tostring(self.shape.uuid)]
-    if not self.data then
-        error("Config file not found")
-    end
+    self.data = config_data[tostring(self.shape.uuid)] or {}
 end
 
 function sensor:server_onRefresh()
@@ -65,16 +66,13 @@ end
 -------------   Client   -------------
 
 function sensor:client_onCreate()
-    print("sensor created")
     self.cl = {}
 
-    gui.init(self, false)
     indicator.init(self)
 end
 
 function sensor:client_onRefresh()
-    gui.init(self, self.cl.gui.is_open)
-    indicator.init(self)
+    gui.refresh(self)
 end
 
 function sensor:client_onDestroy()

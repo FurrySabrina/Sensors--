@@ -1,7 +1,7 @@
 	{
 	"lodList": [
 		{
-			"minViewSize": 17,
+			"minViewSize": 12,
 			"mesh": "$CONTENT_DATA/Objects/Mesh/sensor.fbx",
 			"subMeshMap": {
 				"submesh0": {
@@ -15,13 +15,13 @@
 			}
 		},
 		{
-			"minViewSize": 300,
+			"minViewSize": 1,
 			"mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_sensor_lod1.fbx",
 			"subMeshMap": {
 				"submesh0": {
 					"material": "DifAsgNor",
 					"textureList": [
-						"$CONTENT_DATA/Objects/Textures/sensor_01_dif.png",
+                        "$CONTENT_DATA/Objects/Textures/sensor_01_dif.png",
 						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_01_asg.tga",
 						"$SURVIVAL_DATA/Objects/Textures/interactive/obj_interactive_sensor_01_nor.tga"
 					]
