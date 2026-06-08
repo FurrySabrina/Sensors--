@@ -1,6 +1,7 @@
 {
     "lodList": [
         {
+            "minViewSize": 17,
             "mesh": "$CONTENT_DATA/Objects/Mesh/sensor_indicator.fbx",
             "subMeshMap": {
                 "submesh1": {

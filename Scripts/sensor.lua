@@ -39,27 +39,23 @@ end
 function sensor:server_onCreate()
     self.sv = {}
     self.sv.host = nil -- always the host of the world
-
     self.data = config_data[tostring(self.shape.uuid)] or {}
 end
 
 function sensor:server_onRefresh()
-    self.data = safe_json_open(modDirectory .. "/Scripts/config.json")[tostring(self.shape.uuid)] or {}
-    if not self.data then
-        error("Config file not found")
-    end
+    self.data = config_data[tostring(self.shape.uuid)] or {}
 end
 
----Called every frame.  
----During a frame update, graphics, animations and effects are updated.  
----**Warning:**
----*Because of how frequent this event is called, the game's frame rate is greatly affected by the amount of code executed here.*
----*For any non-graphics related code, consider using [GameClass.server_onFixedUpdate, server_onFixedUpdate] instead.*
----*If the event is not in use, consider removing it from the script. (Event callbacks that are not implemented will not be called.)*
----@param deltaTime number Delta time since the last frame.
-function sensor:server_onUpdate(deltaTime, player)
+--- Lets the server know who the host is.
+--- @param self ShapeClass The sensor class
+--- @param host Player The host of the world (hopefully)
+function sensor:server_setHost(_, host)
+    -- protection against the host changing
+    if not self.sv then
+        self.sv = {}
+    end
     if not self.sv.host then
-        self.sv.host = player
+        self.sv.host = host
     end
 end
 
@@ -67,26 +63,14 @@ end
 
 function sensor:client_onCreate()
     self.cl = {}
-
+    if sm.isHost then
+        self.network:sendToServer("server_setHost")
+    end
     indicator.init(self)
 end
 
 function sensor:client_onRefresh()
     gui.refresh(self)
-end
-
-function sensor:client_onDestroy()
-    indicator.onDestroy(self)
-end
-
-function sensor:client_onFixedUpdate(deltaTime)
-end
-
-function sensor:client_onUpdate(deltaTime)
-    -- only sends when the host frame is updated to the server (never any clients)
-    if sm.isHost then
-        self.network:sendToServer("server_onUpdate", deltaTime)
-    end
 end
 
 function sensor:client_onInteract(character, state)

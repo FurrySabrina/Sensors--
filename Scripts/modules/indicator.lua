@@ -4,28 +4,24 @@ indicator = {}
 --- @param self ShapeClass The sensor class
 function indicator.init(self)
     if self.cl.indicator then
+        -- trying to init the indicator again after it's already been initalized
         return
     end
 
-    self.cl.indicator = {}
-    self.cl.indicator.effect = sm.effect.createEffect(
+    self.cl.indicator = {
+        effect = nil,
+        color = sm.color.new("#000000") -- for caching
+    }
+    local effect = sm.effect.createEffect(
         "ShapeRenderable",
         self.shape.interactable
     )
-    self.cl.indicator.color = sm.color.new("#000000") -- for caching
-    local indicator = self.cl.indicator.effect
-    indicator:setParameter("uuid", sm.uuid.new("4e795e15-c066-4043-9b83-e2087e345854"))
-    indicator:setParameter("color", sm.color.new("#000000"))
-    indicator:setScale( sm.vec3.new(0.25, 0.25, 0.25) )
-    indicator:start()
-end
+    effect:setParameter("uuid", sm.uuid.new("4e795e15-c066-4043-9b83-e2087e345854"))
+    effect:setParameter("color", sm.color.new("#000000"))
+    effect:setScale( sm.vec3.new(0.25, 0.25, 0.25) )
+    effect:start()
 
--- Runs when the shape is destroyed.
-function indicator.onDestroy(self)
-    if self.cl.indicator then
-        self.cl.indicator.effect:destroy()
-        self.cl.indicator = nil
-    end
+    self.cl.indicator.effect = effect
 end
 
 -- Changes the color of the indicator.

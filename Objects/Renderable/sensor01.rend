@@ -1,7 +1,7 @@
 	{
 	"lodList": [
 		{
-			"minViewSize": 12,
+            "minViewSize": 17,
 			"mesh": "$CONTENT_DATA/Objects/Mesh/sensor.fbx",
 			"subMeshMap": {
 				"submesh0": {
@@ -15,7 +15,7 @@
 			}
 		},
 		{
-			"minViewSize": 1,
+			"minViewSize": 300,
 			"mesh": "$SURVIVAL_DATA/Objects/Mesh/interactive/obj_interactive_sensor_lod1.fbx",
 			"subMeshMap": {
 				"submesh0": {

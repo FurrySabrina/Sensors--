@@ -115,6 +115,10 @@ function gui.refresh(self, is_open)
         goto open
     end
 
+    if not self.cl.gui then
+        return
+    end
+
     if not self.cl.gui.is_open then
         return
     end
