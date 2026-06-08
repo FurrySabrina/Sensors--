@@ -42,6 +42,7 @@ function gui.loadText(self)
         interface:setText("UpgradeInfo", self.data.upgrade_info or "")
     end
 
+    interface:setText("SubTitle", "Level " .. self.data.level)
     interface:setText("Open_Settings", getReplacement("@{OPEN_SENSORS_PLUSPLUS_SETTINGS}"))
     interface:setText("Range_Lower", "1")
     interface:setText("Range", "1")

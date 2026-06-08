@@ -40,6 +40,11 @@ function sensor:server_onCreate()
     self.sv = {}
     self.sv.host = nil -- always the host of the world
     self.data = config_data[tostring(self.shape.uuid)] or {}
+    self.sv.saved = {
+        distance = self.data.distance,
+        is_switch = false,
+        is_sound = false,
+    }
 end
 
 function sensor:server_onRefresh()
@@ -59,10 +64,24 @@ function sensor:server_setHost(_, host)
     end
 end
 
+--- Toggles the state of the switch function
+--- @param self ShapeClass The sensor class
+function sensor:server_toggleSwitch(_, player)
+    local is_switch = self.sv.saved.is_switch
+    self.sv.saved.is_switch = not is_switch
+
+    if is_switch then
+        self.network:sendToClient(player, "client_switch", self.sv.saved.distance)
+    else
+        self.network:sendToClient(player, "client_switchOff")
+    end
+end
+
 -------------   Client   -------------
 
 function sensor:client_onCreate()
     self.cl = {}
+    self.cl.saved = {} -- all saved data
     if sm.isHost then
         self.network:sendToServer("server_setHost")
     end
@@ -71,6 +90,8 @@ end
 
 function sensor:client_onRefresh()
     gui.refresh(self)
+
+    indicator.setColor(self, sm.color.new("#00CD22"))
 end
 
 function sensor:client_onInteract(character, state)

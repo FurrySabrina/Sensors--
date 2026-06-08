@@ -5,7 +5,8 @@ upgrade = {}
 --- @param player Player The player that is requesting to upgrade the sensor
 function sensor:server_requestUpgrade(_, player)
     local component_uuid = sm.uuid.new("5530e6a0-4748-4926-b134-50ca9ecb9dcf")
-    local total_components = sm.container.totalQuantity(player:getInventory(), component_uuid)
+    local inventory = player:getInventory()
+    local total_components = sm.container.totalQuantity(inventory, component_uuid)
     
     if not self.data.upgrade then
         self.network:sendToClient(player, "client_guiRefresh")
@@ -15,6 +16,11 @@ function sensor:server_requestUpgrade(_, player)
     local can_upgrade = total_components >= self.data.upgrade_cost
 
     if can_upgrade then
+
+        -- take the used components
+        sm.container.beginTransaction()
+        sm.container.spend(inventory, component_uuid, self.data.upgrade_cost)
+        sm.container.endTransaction()
 
         local shape = self.shape
         shape:replaceShape(sm.uuid.new(self.data.upgrade_uuid))

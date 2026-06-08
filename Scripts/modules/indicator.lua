@@ -1,5 +1,10 @@
 indicator = {}
 
+indicator.colors = {
+    off = sm.color.new("#000000"),
+    default_on = sm.color.new("#00CD22"),
+}
+
 --- Initializes or refreshes the GUI.
 --- @param self ShapeClass The sensor class
 function indicator.init(self)
@@ -10,14 +15,14 @@ function indicator.init(self)
 
     self.cl.indicator = {
         effect = nil,
-        color = sm.color.new("#000000") -- for caching
+        color = indicator.colors.off -- for caching
     }
     local effect = sm.effect.createEffect(
         "ShapeRenderable",
         self.shape.interactable
     )
     effect:setParameter("uuid", sm.uuid.new("4e795e15-c066-4043-9b83-e2087e345854"))
-    effect:setParameter("color", sm.color.new("#000000"))
+    effect:setParameter("color", indicator.colors.off)
     effect:setScale( sm.vec3.new(0.25, 0.25, 0.25) )
     effect:start()
 

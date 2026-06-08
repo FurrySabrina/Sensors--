@@ -60,6 +60,7 @@
     // Level 5 Sensor
     "20dcd41c-0a11-4668-9b00-97f278ce21af": {
         "uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af",
+        "level": 5,
         "distance": 20,
         "detect_color": true
         // no upgrade for this since its level 5 (max)
