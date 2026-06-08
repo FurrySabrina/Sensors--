@@ -14,10 +14,7 @@
 			},
 			"scripted": {
                 "filename": "$CONTENT_DATA/Scripts/sensor.lua",
-                "classname": "sensor",
-                "data": {
-                    "level": 1
-                }
+                "classname": "sensor"
             },
 			"rotationSet": "PropZY",
 			"sticky": "+Y-Y-Z+X-X",
@@ -44,7 +41,12 @@
                 "filename": "$CONTENT_DATA/Scripts/sensor.lua",
                 "classname": "sensor",
                 "data": {
-                    "level": 2
+                    "level": 2,
+                    "distance": 8,
+                    "upgrade": true,
+                    "upgrade_cost": 1,
+                    "upgrade_info": "#9f9e9eRange: #cff42b+4",
+                    "upgrade_uuid": "90fc3603-3544-4254-97ef-ea6723510961"
                 }
             },
 			"rotationSet": "PropZY",
@@ -72,7 +74,12 @@
                 "filename": "$CONTENT_DATA/Scripts/sensor.lua",
                 "classname": "sensor",
                 "data": {
-                    "level": 3
+                    "level": 3,
+                    "distance": 12,
+                    "upgrade": true,
+                    "upgrade_cost": 1,
+                    "upgrade_info": "#9f9e9eRange: #cff42b+4",
+                    "upgrade_uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b"
                 }
             },
 			"rotationSet": "PropZY",
@@ -100,7 +107,12 @@
                 "filename": "$CONTENT_DATA/Scripts/sensor.lua",
                 "classname": "sensor",
                 "data": {
-                    "level": 4
+                    "level": 4,
+                    "distance": 16,
+                    "upgrade": true,
+                    "upgrade_cost": 3,
+                    "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9eRange: #cff42b+4",
+                    "upgrade_uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af"
                 }
             },
 			"rotationSet": "PropZY",
@@ -128,7 +140,9 @@
                 "filename": "$CONTENT_DATA/Scripts/sensor.lua",
                 "classname": "sensor",
                 "data": {
-                    "level": 5
+                    "level": 5,
+                    "distance": 20,
+                    "detect_color": true
                 }
             },
 			"rotationSet": "PropZY",

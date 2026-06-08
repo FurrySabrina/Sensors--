@@ -19,8 +19,6 @@ function indicator.init(self)
     self.cl.indicator.effect:start()
 
     local indicator = self.cl.indicator.effect
-
-    print(indicator)
 end
 
 -- Runs when the shape is destroyed.

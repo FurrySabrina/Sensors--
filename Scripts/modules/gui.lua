@@ -20,9 +20,8 @@ end
 function gui.loadText(self)
 
     local interface = self.cl.gui.interface
-    local config = self.cl.config
 
-    if config.upgrade then
+    if self.data.upgrade then
         local is_survival = sm.game.getLimitedInventory()
         local count_str
 
@@ -30,27 +29,28 @@ function gui.loadText(self)
             local inventory = sm.localPlayer.getPlayer():getInventory()
             local component_uuid = sm.uuid.new("5530e6a0-4748-4926-b134-50ca9ecb9dcf")
             local total_components = sm.container.totalQuantity(inventory, component_uuid)
-            
-            local can_upgrade = total_components >= config.upgrade_cost
+
+            local can_upgrade = total_components >= self.data.upgrade_cost
             local total_color = can_upgrade and "#cff42b" or "#ff2b4a"
             count_str = total_color .. total_components
         else
             count_str = "#cff42b*"
         end
 
-        interface:setText("UpgradeCost", string.format("%s #9f9e9e/ %d", count_str, config.upgrade_cost))
-        interface:setText("UpgradeInfo", config.upgrade_info or "")
+        interface:setText("UpgradeCost", string.format("%s #9f9e9e/ %d", count_str, self.data.upgrade_cost))
+        interface:setText("UpgradeInfo", self.data.upgrade_info or "")
     end
 
     interface:setText("Open_Settings", getReplacement("@{OPEN_SENSORS_PLUSPLUS_SETTINGS}"))
     interface:setText("Range_Lower", "1")
     interface:setText("Range", "1")
-    interface:setText("Range_Upper", tostring(config.distance))
+    interface:setText("Range_Upper", tostring(self.data.distance))
 end
 
 --- Initializes or refreshes the GUI.
 --- @param self ShapeClass The sensor class
-function gui.init(self)
+--- @param is_open boolean Whether the GUI is open or not.
+function gui.init(self, is_open)
     replacements = safe_json_open(modDirectory ..
         "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
     if next(replacements) == nil then
@@ -58,14 +58,13 @@ function gui.init(self)
             sm.gui.getCurrentLanguage() .. ". Using English fallback.")
     end
 
-    if self.cl.gui then
+    if self.cl.gui and sm.exists(self.cl.gui.interface) then
         self.cl.gui.interface:close()
         self.cl.gui.interface:destroy()
     end
 
     self.cl.gui = {}
-    self.cl.gui.language = sm.gui.getCurrentLanguage()
-    self.cl.gui.is_survival = sm.game.getLimitedInventory()
+    self.cl.gui.is_open = is_open
     self.cl.gui.interface = sm.gui.createGuiFromLayout(
         "$CONTENT_DATA/Gui/Layouts/Sensor.layout",
         false,
@@ -78,10 +77,8 @@ function gui.init(self)
             backgroundAlpha = 0,  --The transparency of the GUI background. 1 = opaque, 0 = transparent
         }
     )
-    self.cl.gui.interface:setOnCloseCallback( "client_onClosed" )
 
     local interface = self.cl.gui.interface
-    local upgrade = self.cl.config.upgrade
 
     interface:setIconImage("Icon", self.shape.uuid)
 
@@ -95,33 +92,79 @@ function gui.init(self)
     }
 
     for _, button in ipairs(buttons) do
-        interface:setButtonCallback(button, "client_onButtonPress")
+        interface:setButtonCallback(button, "client_onGuiButtonPress")
     end
 
-    if upgrade then
+    if self.data.upgrade then
         interface:setVisible("NoUpgradeBackground", false)
         interface:setVisible("UpgradeBackground", true)
         interface:setVisible("UpgradeContainer", true)
-        interface:setIconImage("UpgradeIcon", sm.uuid.new(upgrade))
+        interface:setIconImage("UpgradeIcon", sm.uuid.new(self.data.upgrade_uuid))
     end
 
     gui.loadText(self)
+
+    if is_open then
+        interface:open()
+    end
+end
+
+--- Refreshes the GUI.
+--- @param self ShapeClass The sensor class
+function gui.refresh(self, is_open)
+    replacements = safe_json_open(modDirectory ..
+        "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
+    if next(replacements) == nil then
+        sm.log.warning("No replacements found for language: " ..
+            sm.gui.getCurrentLanguage() .. ". Using English fallback.")
+    end
+
+    local interface = self.cl.gui.interface
+
+    interface:setIconImage("Icon", sm.uuid.new(self.data.uuid))
+
+    if self.data.upgrade then
+        interface:setVisible("NoUpgradeBackground", false)
+        interface:setVisible("UpgradeBackground", true)
+        interface:setVisible("UpgradeContainer", true)
+        interface:setIconImage("UpgradeIcon", sm.uuid.new(self.data.upgrade_uuid))
+    else
+        interface:setVisible("NoUpgradeBackground", true)
+        interface:setVisible("UpgradeBackground", false)
+        interface:setVisible("UpgradeContainer", false)
+    end
+
+    gui.loadText(self)
+
+    if is_open then
+        interface:open()
+    end
+end
+
+--- Refreshes the GUI.
+--- @param self ShapeClass The sensor class
+function sensor:client_guiRefresh()
+    gui.refresh(self, self.cl.gui.is_open)
 end
 
 --- Handles a button press.
 --- @param self ShapeClass The sensor class
-function sensor:client_onButtonPress(button)
-    print(button)
+function sensor:client_onGuiButtonPress(button)
+    local interface = self.cl.gui.interface
+
+    if button == "Upgrade" then
+        print("attempting to upgrade")
+        self.network:sendToServer("server_requestUpgrade")
+    end
 end
 
 --- Opens the gui.
---- @param self ShapeClass The sensor class
+--- @param self ShapeClass The sensor classe
 function gui.open(self)
-    gui.init(self)
-    self.cl.gui.interface:open()
-end
-
---- Runs when the gui is force closed.
---- @param self ShapeClass The sensor class
-function sensor:client_onClosed()
+    print(self.cl.gui)
+    if not self.cl.gui.interface then
+        gui.init(self, true)
+    else
+        gui.refresh(self, true)
+    end
 end

@@ -1,7 +1,7 @@
 dofile"modules/utils.lua"
 
 ---@type ShapeClass
-sensor = class()
+sensor = sensor or class()
 
 sensor.colorNormal = sm.color.new( "#910640" )
 sensor.colorHighlight = sm.color.new( "#B60E55" )
@@ -15,13 +15,12 @@ sensor.poseWeightCount = 1
 
 modDirectory = "$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2"
 
-local config_data = safe_json_open(modDirectory .. "/Scripts/config.json")
-
 -------------   Modules   ------------
 
 -- modules are loaded in the order they are listed here
 local modules = {
     "dofile_fixer",
+    "upgrade",
     "gui",
     "indicator",
 }
@@ -35,11 +34,19 @@ end
 function sensor:server_onCreate()
     print("sensor created")
     self.sv = {}
-    self.sv.config = {}
     self.sv.host = nil -- always the host of the world
 
-    -- load config
-    self.sv.config = config_data and (config_data[tostring(self.data.level)] or {}) or {}
+    self.data = safe_json_open(modDirectory .. "/Scripts/config.json")[tostring(self.shape.uuid)]
+    if not self.data then
+        error("Config file not found")
+    end
+end
+
+function sensor:server_onRefresh()
+    self.data = safe_json_open(modDirectory .. "/Scripts/config.json")[tostring(self.shape.uuid)] or {}
+    if not self.data then
+        error("Config file not found")
+    end
 end
 
 ---Called every frame.  
@@ -53,10 +60,6 @@ function sensor:server_onUpdate(deltaTime, player)
     if not self.sv.host then
         self.sv.host = player
     end
-    if player ~= self.sv.host then
-        print("Player is not the host")
-        return -- halt here.
-    end
 end
 
 -------------   Client   -------------
@@ -65,21 +68,12 @@ function sensor:client_onCreate()
     print("sensor created")
     self.cl = {}
 
-    -- load config
-    local configFile = safe_json_open(modDirectory .. "/Scripts/config.json")
-    if configFile then
-        if not configFile[tostring(self.data.level)] then
-            error("Config file not found")
-        end
-        self.cl.config = configFile[tostring(self.data.level)]
-    end
-
-    gui.init(self)
+    gui.init(self, false)
     indicator.init(self)
 end
 
 function sensor:client_onRefresh()
-    gui.init(self)
+    gui.init(self, self.cl.gui.is_open)
     indicator.init(self)
 end
 
@@ -101,4 +95,8 @@ function sensor:client_onInteract(character, state)
     if state then
         gui.open(self)
     end
+end
+
+function sensor:client_onUpgraded()
+    gui.init(self, true)
 end

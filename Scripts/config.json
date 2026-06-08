@@ -13,43 +13,53 @@
     */
 
     // Level 1 Sensor
-    "1": {
+    "1d4793af-cb66-4628-804a-9d7404712643": {
+        "uuid": "1d4793af-cb66-4628-804a-9d7404712643",
+        "level": 1,
         "distance": 4,
-        "detect_color": false,
-        "upgrade": "cf46678b-c947-4267-ba85-f66930f5faa4",
+        "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_uuid": "cf46678b-c947-4267-ba85-f66930f5faa4"
     },
 
     // Level 2 Sensor
-    "2": {
+    "cf46678b-c947-4267-ba85-f66930f5faa4": {
+        "uuid": "cf46678b-c947-4267-ba85-f66930f5faa4",
+        "level": 2,
         "distance": 8,
-        "detect_color": false,
-        "upgrade": "90fc3603-3544-4254-97ef-ea6723510961",
+        "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_uuid": "90fc3603-3544-4254-97ef-ea6723510961"
     },
 
     // Level 3 Sensor
-    "3": {
+    "90fc3603-3544-4254-97ef-ea6723510961": {
+        "uuid": "90fc3603-3544-4254-97ef-ea6723510961",
+        "level": 3,
         "distance": 12,
-        "detect_color": false,
-        "upgrade": "de018bc6-1db5-492c-bfec-045e63f9d64b",
+        "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4"
+        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b"
     },
 
     // Level 4 Sensor
-    "4": {
+    "de018bc6-1db5-492c-bfec-045e63f9d64b": {
+        "uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b",
+        "level": 4,
         "distance": 16,
         "detect_color": false,
-        "upgrade": "20dcd41c-0a11-4668-9b00-97f278ce21af",
+        "upgrade": true,
         "upgrade_cost": 3,
-        "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9eRange: #cff42b+4"
+        "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9eRange: #cff42b+4",
+        "upgrade_uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af"
     },
 
     // Level 5 Sensor
-    "5": {
+    "20dcd41c-0a11-4668-9b00-97f278ce21af": {
+        "uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af",
         "distance": 20,
         "detect_color": true
         // no upgrade for this since its level 5 (max)
