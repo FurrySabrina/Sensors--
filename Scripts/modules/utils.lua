@@ -67,3 +67,43 @@ function tableHash(t)
     end
     return fletcher32Hex(serialized)
 end
+
+
+
+debugDraws = {
+    --- Draws a single debug line for a single frame.
+    --- 
+    --- **Warning:** *To keep the line visible, this function must be called every frame.*
+    --- @param from Vec3 The start position of the line.
+    --- @param to Vec3 The end position of the line.
+    --- @param color Color The color of the line.
+    line = function(from, to, color)
+        sm.debugDraw.drawLine(from, to, color)
+    end,
+    --- Adds a named arrow debug draw.
+    --- @param name string The debug arrow name.
+    --- @param from Vec3 The from position.
+    --- @param to? Vec3 The to position. Defaults to the from position plus one along the z axis. (World up vector)
+    arrow = function(id, name, from, to, color)
+        stored_debugDraws[id][name] = 0
+        sm.debugDraw.addArrow(id.."_"..name, from, to, color)
+    end,
+    --- Adds a named sphere debug draw.
+    --- @param name string The debug sphere name.
+    --- @param center Vec3 The sphere center.
+    --- @param radius? number The sphere radius. Defaults to 0.125.
+    sphere = function(id, name, center, radius, color)
+        stored_debugDraws[id][name] = 0
+        stored_debugDraws[name] = 0
+        sm.debugDraw.addSphere(id.."_"..name, center, radius, color)
+    end,
+    --- Adds a named transform debug draw.
+    --- @param name string The debug transform name.
+    --- @param origin Vec3 The transform origin.
+    --- @param rotation Quat The transform rotation.
+    transform = function(id, name, origin, rotation, scale)
+        stored_debugDraws[id][name] = 0
+        stored_debugDraws[name] = 0
+        sm.debugDraw.addTransform(id.."_"..name, origin, rotation, scale)
+    end
+}

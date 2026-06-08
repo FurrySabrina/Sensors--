@@ -61,68 +61,16 @@
 				<Property key="TextColour" value="#9f9e9e" />
 			</Widget>
 		</Widget>
-		<Widget type="TextBox" skin="TextBox" position_real="0.0662739322533137 0.463768115942029 0.08100147275405008 0.036231884057971016">
+		<Widget type="TextBox" skin="TextBox" position_real="0.05891016200294551 0.4057971014492754 0.8836524300441826 0.036231884057971016">
 			<Property key="Caption" value="#{CONTROLLER_PISTON_RANGE}" />
 			<Property key="TextAlign" value="Left VCenter" />
 			<Property key="FontName" value="SM_TextLabel" />
 		</Widget>
-		<Widget type="Button" skin="ToggleButton" name="Open_Settings" position_real="0.05154639175257732 0.6014492753623188 0.898379970544919 0.08695652173913043">
-			<Property key="Caption" value="@{OPEN_SENSORS_PLUSPLUS_SETTINGS}" />
+		<Widget type="Canvas" skin="PanelEmpty" name="Range_Slider" position_real="0.05154639175257732 0.4492753623188406 0.898379970544919 0.11594202898550725" />
+		<Widget type="Button" skin="ToggleButton" name="Open_Settings" position_real="0.044182621502209134 0.5942028985507246 0.9131075110456554 0.08695652173913043">
+			<Property key="Caption" value="@{OPEN_SETTINGS}" />
 			<Property key="FontName" value="SM_Header" />
 			<Property key="TextAlign" value="Center" />
 		</Widget>
-		<Widget type="Widget" skin="SearchBarBackground" position_real="0.05891016200294551 0.5072463768115942 0.8836524300441826 0.050724637681159424">
-			<Property key="Caption" value="Range" />
-			<Property key="TextAlign" value="Center" />
-			<Property key="FontName" value="SM_Header" />
-			<Property key="ReadOnly" value="false" />
-			<Widget type="EditBox" skin="EditBoxEmpty" name="Range" position_real="0.075 0 0.85 1">
-				<Property key="Caption" value="696" />
-				<Property key="FontName" value="SM_Header" />
-				<Property key="TextAlign" value="Center" />
-				<Property key="MultiLine" value="false" />
-				<Property key="ReadOnly" value="false" />
-				<Property key="Static" value="false" />
-				<Property key="OverflowToTheLeft" value="false" />
-			</Widget>
-			<Widget type="TextBox" skin="TextBox" name="Range_Lower" position_real="0 0 0.075 1">
-				<Property key="Caption" value="1" />
-				<Property key="TextAlign" value="Center" />
-				<Property key="FontName" value="SM_HeaderSmall" />
-				<Property key="ReadOnly" value="false" />
-			</Widget>
-			<Widget type="TextBox" skin="TextBox" name="Range_Upper" position_real="0.925 0 0.075 1">
-				<Property key="Caption" value="999" />
-				<Property key="TextAlign" value="Center" />
-				<Property key="FontName" value="SM_HeaderSmall" />
-				<Property key="ReadOnly" value="false" />
-			</Widget>
-		</Widget>
-		<Widget type="Button" skin="SettingsButton" name="Setting_Switch" position_real="0.05154639175257732 0.6811594202898551 0.18409425625920472 0.057971014492753624">
-			<Property key="Caption" value="#{CONTROLLER_SENSOR_MODE_SWITCH}" />
-			<Property key="FontName" value="SM_ButtonTiny" />
-			<Property key="TextAlign" value="Center" />
-		</Widget>
-		<Widget type="Button" skin="SettingsButton" name="Setting_Sound" position_real="0.22827687776141384 0.6811594202898551 0.18409425625920472 0.057971014492753624">
-			<Property key="Caption" value="#{CONTROLLER_SENSOR_SOUND}" />
-			<Property key="FontName" value="SM_ButtonTiny" />
-			<Property key="TextAlign" value="Center" />
-		</Widget>
-		<Widget type="Button" skin="SettingsButton" name="Setting_Color" position_real="0.4050073637702504 0.6811594202898551 0.18409425625920472 0.057971014492753624">
-			<Property key="Caption" value="#{CONTROLLER_SENSOR_COLOR}" />
-			<Property key="FontName" value="SM_ButtonTiny" />
-			<Property key="TextAlign" value="Center" />
-		</Widget>
-	</Widget>
-	<Widget type="Widget" skin="BackgroundSensorColorSelect" name="ColorSelectPanel" position_real="0.6875 0.12777777777777777 0.15625 0.5277777777777778">
-		<Property key="Visible" value="false" />
-		<Widget type="TextBox" skin="TextBox" position_real="0 0.07368421052631578 1 0.08421052631578947">
-			<Property key="Caption" value="#{CONTROLLER_SENSOR_COLOR_PICKER_TITLE_1}\n#{CONTROLLER_SENSOR_COLOR_PICKER_TITLE_2}" />
-			<Property key="TextAlign" value="Center" />
-			<Property key="FontName" value="SM_SubHeader" />
-			<Property key="TextColour" value="1 1 1" />
-			<Property key="NeedMouse" value="false" />
-		</Widget>
-		<Widget type="ItemBox" skin="InventoryItemBox2" name="ColorList" position_real="0.08 0.23684210526315788 0.84 0.7052631578947368" />
 	</Widget>
 </MyGUI>

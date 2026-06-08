@@ -1,20 +1,18 @@
 gui = {}
 
-local replacements = safe_json_open(modDirectory .. "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
-local current_language = sm.gui.getCurrentLanguage()
-local english_data = safe_json_open(modDirectory .. "/Gui/Language/English/gui_replacements.json") or {}
+local replacement_cache = {}
 
 --- Attempts to get a replacement for a key.
 --- @param key string The key to get the replacement for
 function getReplacement(key)
-    if replacements[key] then
-        return replacements[key]
+    local language = sm.gui.getCurrentLanguage()
+    if replacement_cache[language] and replacement_cache[language][key] then
+        return replacement_cache[language][key]
     else
-        if english_data[key] then
-            return english_data[key] .. " [ENG]"
-        else
-            return key
+        if not replacement_cache["English"] then
+            replacement_cache["English"] = safe_json_open(modDirectory .. "/Gui/Language/English/gui_replacements.json") or {}
         end
+        return replacement_cache["English"][key] .. " [ENG]"
     end
 end
 
@@ -43,16 +41,22 @@ function gui.loadText(self)
     end
 
     interface:setText("SubTitle", "Level " .. self.data.level)
-    interface:setText("Open_Settings", getReplacement("@{OPEN_SENSORS_PLUSPLUS_SETTINGS}"))
+    interface:setText("Open_Settings", getReplacement("@{OPEN_SETTINGS}"))
     interface:setText("Range_Lower", "1")
     interface:setText("Range", "1")
-    interface:setText("Range_Upper", tostring(self.data.distance))
+    interface:setText("Range_Upper", tostring(self.data.max_distance))
 end
 
 --- Initializes or refreshes the GUI.
 --- @param self ShapeClass The sensor class
 --- @param is_open boolean Whether the GUI is open or not.
 function gui.init(self, is_open)
+
+    -- cache the replacement if not already cached
+    if not replacement_cache[sm.gui.getCurrentLanguage()] then
+        replacement_cache[sm.gui.getCurrentLanguage()] = safe_json_open(modDirectory .. "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
+    end
+
     if self.cl.gui and sm.exists(self.cl.gui.interface) then
         gui.refresh(self, is_open) -- pass it off to the refresh function instead of doing it here
         return
@@ -76,6 +80,7 @@ function gui.init(self, is_open)
     local interface = self.cl.gui.interface
 
     interface:setIconImage("Icon", self.shape.uuid)
+    interface:setVisible("Setting_Color", self.data.detect_color or false)
 
     -- hook buttons
     local buttons = {
@@ -90,15 +95,13 @@ function gui.init(self, is_open)
         interface:setButtonCallback(button, "client_onGuiButtonPress")
     end
 
+    interface:createHorizontalSlider("Range_Slider", 20, self.cl.saved.distance-1 or 0, "client_onSliderChanged", true)
+
     if self.data.upgrade then
         interface:setVisible("NoUpgradeBackground", false)
         interface:setVisible("UpgradeBackground", true)
         interface:setVisible("UpgradeContainer", true)
         interface:setIconImage("UpgradeIcon", sm.uuid.new(self.data.upgrade_uuid))
-    end
-
-    if not self.data.detect_color then
-        interface:setVisible("Setting_Color", false)
     end
 
     gui.loadText(self)
@@ -126,14 +129,12 @@ function gui.refresh(self, is_open)
 
     ::open::
 
-    if current_language ~= sm.gui.getCurrentLanguage() then
-        replacements = safe_json_open(modDirectory .. "/Gui/Language/" .. sm.gui.getCurrentLanguage() .. "/gui_replacements.json") or {}
-        current_language = sm.gui.getCurrentLanguage()
-    end
-
     local interface = self.cl.gui.interface
 
     interface:setIconImage("Icon", sm.uuid.new(self.data.uuid))
+    interface:setVisible("Setting_Color", self.data.detect_color)
+
+    interface:setSliderPosition("Range_Slider", self.cl.saved.distance-1)
 
     if self.data.upgrade then
         interface:setVisible("NoUpgradeBackground", false)
@@ -153,6 +154,14 @@ function gui.refresh(self, is_open)
     end
 end
 
+--- Opens the gui.
+--- @param self ShapeClass The sensor classe
+function gui.open(self)
+    gui.init(self, true)
+end
+
+----------   Sensor Functions   ----------
+
 --- Refreshes the GUI.
 --- @param self ShapeClass The sensor class
 function sensor:client_guiRefresh()
@@ -162,15 +171,34 @@ end
 --- Handles a button press.
 --- @param self ShapeClass The sensor class
 function sensor:client_onGuiButtonPress(button)
-    local interface = self.cl.gui.interface
-
     if button == "Upgrade" then
         self.network:sendToServer("server_requestUpgrade")
+        return
     end
+
+    print("Unhandled button: " .. button)
 end
 
---- Opens the gui.
---- @param self ShapeClass The sensor classe
-function gui.open(self)
-    gui.init(self, true)
+--- Fires when the range slider is changed
+--- @param self ShapeClass The sensor class
+function sensor:client_onSliderChanged(value)
+    local interface = self.cl.gui.interface
+    value = value
+    if value > self.data.max_distance-1 then
+        interface:setSliderPosition("Range_Slider", self.data.max_distance-1)
+        value = self.data.max_distance-1
+    end
+    self.cl.saved.distance = value+1 -- does get set by the server a few tick later, this is just for a filler for that little time
+    self.network:sendToServer("client_setDistance", value+1)
+end
+
+--- Lets the client change the distance
+--- @param self ShapeClass The sensor class
+--- @param data table Data setting to set
+function sensor:client_setDistance(data, player)
+    if not data then return end
+    if type(data) ~= "number" then return end
+    self.sv.saved.distance = sm.util.clamp(data, 1, self.data.max_distance)
+    self.storage:save(self.sv.saved)
+    self.network:sendToClients("client_receiveClientSettings", self.sv.saved)
 end

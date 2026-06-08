@@ -1,4 +1,5 @@
 {
     // because the game uses #{...} for translations, im going to use @{...} instead
-    "@{OPEN_SENSORS_PLUSPLUS_SETTINGS}": "Open Sensors++ Settings"
+    "@{OPEN_SENSORS_PLUSPLUS_SETTINGS}": "Open Sensors++ Settings",
+    "@{OPEN_SETTINGS}": "Open Settings"
 }

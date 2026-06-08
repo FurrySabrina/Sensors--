@@ -16,7 +16,7 @@
     "1d4793af-cb66-4628-804a-9d7404712643": {
         "uuid": "1d4793af-cb66-4628-804a-9d7404712643",
         "level": 1,
-        "distance": 4,
+        "max_distance": 4,
         "upgrade": true,
         "upgrade_cost": 1,
         "upgrade_info": "#9f9e9eRange: #cff42b+4",
@@ -27,7 +27,7 @@
     "cf46678b-c947-4267-ba85-f66930f5faa4": {
         "uuid": "cf46678b-c947-4267-ba85-f66930f5faa4",
         "level": 2,
-        "distance": 8,
+        "max_distance": 8,
         "upgrade": true,
         "upgrade_cost": 1,
         "upgrade_info": "#9f9e9eRange: #cff42b+4",
@@ -38,7 +38,7 @@
     "90fc3603-3544-4254-97ef-ea6723510961": {
         "uuid": "90fc3603-3544-4254-97ef-ea6723510961",
         "level": 3,
-        "distance": 12,
+        "max_distance": 12,
         "upgrade": true,
         "upgrade_cost": 1,
         "upgrade_info": "#9f9e9eRange: #cff42b+4",
@@ -49,7 +49,7 @@
     "de018bc6-1db5-492c-bfec-045e63f9d64b": {
         "uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b",
         "level": 4,
-        "distance": 16,
+        "max_distance": 16,
         "detect_color": false,
         "upgrade": true,
         "upgrade_cost": 3,
@@ -61,9 +61,9 @@
     "20dcd41c-0a11-4668-9b00-97f278ce21af": {
         "uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af",
         "level": 5,
-        "distance": 20,
+        "max_distance": 20,
         "detect_color": true
         // no upgrade for this since its level 5 (max)
-    }
-
+    },
+    "slider_max" : 20
 }

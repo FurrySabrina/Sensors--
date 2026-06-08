@@ -1,0 +1,83 @@
+detector = {}
+
+local raycast = sm.physics.raycast
+
+--- Types of detection shapes
+detector.sensor_types = {
+    line = 1, -- Uses 1 line straight from center.
+    box = 2, -- Uses 4 lines on each corner.
+    sphere = 3 --- Uses shapecasting to detect a sphere.
+}
+
+local scan = {
+    [1] = function (distance, position, shape_up, shape)
+        local offset = shape_up*shape:getBoundingBox().z/2.1
+        return raycast(position, position+(shape_up*distance)+offset, shape)
+    end,
+    [2] = function (self, position, shape_up, shape)
+    end,
+    [3] = function (self, position, shape_up, shape)
+    end
+}
+
+--- Initializes the detector.
+--- @param self ShapeClass The sensor class
+function detector.init(self)
+    if self.sv.detector then
+        -- trying to init the detector again after it's already been initalized
+        return
+    end
+
+    self.sv.detector = {
+        enabled = false,
+        type = detector.sensor_types.line,
+        accumulator = 0,
+        did_last_hit = false,
+    }
+end
+
+--- Runs every tick (40 times per second).
+--- @param self ShapeClass The sensor class
+function detector.server_onTick(self, dt)
+
+    local detector_data = self.sv.detector
+
+    local frequency
+    if global_settings.is_dynamic_freq then
+        frequency = detector_data.did_last_hit and global_settings.frequency or 5
+    else
+        frequency = global_settings.frequency
+    end
+
+    -- Frequency logic: Only proceed if enough time has passed based on global_settings.frequency
+    -- 1 / 40 = 0.025s (every tick). 1 / 10 = 0.1s (every 4 ticks).
+    local threshold = 1 / frequency
+    threshold = threshold + (0.5-self.random)*threshold
+    detector_data.accumulator = detector_data.accumulator + dt
+
+    if detector_data.accumulator < threshold then
+        return
+    end
+    detector_data.accumulator = detector_data.accumulator - threshold
+    
+    local distance = self.sv.saved.distance/4
+    local shape = self.shape
+    local shape_up = shape:getUp()
+    local position = shape.worldPosition
+
+    local success , hit = scan[detector_data.type](distance, position, shape_up, shape)
+
+    detector_data.did_last_hit = success
+
+    if success then
+        if not detector_data.enabled then
+            self.network:sendToClients("client_setIndicatorColor", indicator.colors.default_on)
+            detector_data.enabled = true
+        end
+    else
+        if detector_data.enabled then
+            self.network:sendToClients("client_setIndicatorColor", indicator.colors.off)
+            detector_data.enabled = false
+        end
+    end
+end

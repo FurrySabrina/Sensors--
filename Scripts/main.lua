@@ -14,17 +14,20 @@ sensor.poseWeightCount = 1
 -- self.interactable:setPoseWeight( 0, weight(0-1) ) this is how you set the active pose
 
 modDirectory = "$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2"
-local config_data = safe_json_open(modDirectory .. "/Scripts/config.json")
+config_data = safe_json_open(modDirectory .. "/Scripts/config.json")
 
 if not config_data then
     error("Config file not found")
 end
+
+stored_debugDraws = stored_debugDraws or {}
 
 -------------   Modules   ------------
 
 -- modules are loaded in the order they are listed here
 local modules = {
     "dofile_fixer",
+    "global settings",
     "upgrade",
     "gui",
     "indicator",
@@ -38,17 +41,37 @@ end
 
 function sensor:server_onCreate()
     self.sv = {}
+    self.random = math.random()
     self.sv.host = nil -- always the host of the world
     self.data = config_data[tostring(self.shape.uuid)] or {}
-    self.sv.saved = {
-        distance = self.data.distance,
-        is_switch = false,
-        is_sound = false,
+    self.sv.saved = self.storage:load() or {
+        distance = 1
     }
+    self.network:sendToClients("client_receiveClientSettings", self.sv.saved)
+    self.storage:save(self.sv.saved)
+
+    stored_debugDraws[self.shape.id] = {}
 end
 
 function sensor:server_onRefresh()
     self.data = config_data[tostring(self.shape.uuid)] or {}
+end
+
+function sensor:server_onDestroy()
+    for name in pairs(stored_debugDraws[self.shape.id]) do
+        sm.debugDraw.clear(self.shape.id.."_"..name)
+    end
+end
+
+--- Lets the client set a setting
+--- @param self ShapeClass The sensor class
+--- @param data table Data setting to set
+function sensor:client_setSetting(data)
+    if not data then return end
+    if type(data) ~= "table" then return end
+    if data.distance then
+        self.data.max_distance = math.clamp(data.distance, 1, self.data.max_distance)
+    end
 end
 
 --- Lets the server know who the host is.
@@ -64,24 +87,13 @@ function sensor:server_setHost(_, host)
     end
 end
 
---- Toggles the state of the switch function
---- @param self ShapeClass The sensor class
-function sensor:server_toggleSwitch(_, player)
-    local is_switch = self.sv.saved.is_switch
-    self.sv.saved.is_switch = not is_switch
-
-    if is_switch then
-        self.network:sendToClient(player, "client_switch", self.sv.saved.distance)
-    else
-        self.network:sendToClient(player, "client_switchOff")
-    end
-end
-
 -------------   Client   -------------
 
 function sensor:client_onCreate()
     self.cl = {}
-    self.cl.saved = {} -- all saved data
+    self.cl.saved = {
+        distance = 1
+    } -- all saved data
     if sm.isHost then
         self.network:sendToServer("server_setHost")
     end
@@ -90,8 +102,6 @@ end
 
 function sensor:client_onRefresh()
     gui.refresh(self)
-
-    indicator.setColor(self, sm.color.new("#00CD22"))
 end
 
 function sensor:client_onInteract(character, state)
@@ -100,6 +110,10 @@ function sensor:client_onInteract(character, state)
     end
 end
 
-function sensor:client_onUpgraded()
-    gui.init(self, true)
+
+--- Lets the server send settings to the client
+--- @param self ShapeClass The sensor class
+function sensor:client_receiveClientSettings(saved)
+    self.cl.saved.distance = saved.distance
+    gui.refresh(self)
 end

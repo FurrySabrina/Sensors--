@@ -13,7 +13,7 @@
 				"z": 1
 			},
 			"scripted": {
-                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "filename": "$CONTENT_DATA/Scripts/main.lua",
                 "classname": "sensor"
             },
 			"rotationSet": "PropZY",
@@ -38,7 +38,7 @@
 				"z": 1
 			},
 			"scripted": {
-                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "filename": "$CONTENT_DATA/Scripts/main.lua",
                 "classname": "sensor"
             },
 			"rotationSet": "PropZY",
@@ -63,7 +63,7 @@
 				"z": 1
 			},
 			"scripted": {
-                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "filename": "$CONTENT_DATA/Scripts/main.lua",
                 "classname": "sensor"
             },
 			"rotationSet": "PropZY",
@@ -88,7 +88,7 @@
 				"z": 1
 			},
 			"scripted": {
-                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "filename": "$CONTENT_DATA/Scripts/main.lua",
                 "classname": "sensor"
             },
 			"rotationSet": "PropZY",
@@ -113,7 +113,7 @@
 				"z": 1
 			},
 			"scripted": {
-                "filename": "$CONTENT_DATA/Scripts/sensor.lua",
+                "filename": "$CONTENT_DATA/Scripts/main.lua",
                 "classname": "sensor"
             },
 			"rotationSet": "PropZY",

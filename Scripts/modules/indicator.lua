@@ -2,7 +2,7 @@ indicator = {}
 
 indicator.colors = {
     off = sm.color.new("#000000"),
-    default_on = sm.color.new("#00CD22"),
+    default_on = sm.color.new("#00FF3C"),
 }
 
 --- Initializes or refreshes the GUI.
@@ -14,6 +14,7 @@ function indicator.init(self)
     end
 
     self.cl.indicator = {
+        enabled = true,
         effect = nil,
         color = indicator.colors.off -- for caching
     }
@@ -36,4 +37,11 @@ function indicator.setColor(self, color)
         indicator.color = color
         indicator.effect:setParameter("color", color)
     end
+end
+
+--- Sets the color of the indicator.
+--- @param self ShapeClass The sensor class
+--- @param color Color The color to set
+function sensor:client_setIndicatorColor(color)
+    indicator.setColor(self, color)
 end
