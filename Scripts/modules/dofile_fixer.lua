@@ -1,4 +1,4 @@
-local _dofile = dofile
+_dofile = _dofile or dofile
 local __RETURN__ = nil
 local __ARGS__ = nil
 
@@ -19,6 +19,7 @@ throw(ret1, ret2, ...)
 --- @param file string File to load
 --- @param ... any Arguments to send
 function dofile(file, ...)
+    fprint({type = "io"}, "Loading file: " .. file)
     local previous_return = __RETURN__
     local previous_args = __ARGS__
     
@@ -42,6 +43,7 @@ end
 --- Get arguments from the dofiled script
 --- @return any ... Arguments
 function args()
+    fprint({type = "io"}, "Getting arguments")
     if __ARGS__ == nil then return nil end -- sanity check
     return unpack(__ARGS__)
 end
@@ -49,6 +51,7 @@ end
 --- Send data back to the dofiler script
 --- @param ... any Data to send back
 function return_values(...)
+    fprint({type = "io"}, "Returning values")
     local len = select('#', ...)
 
     if not __RETURN__ then

@@ -8,6 +8,7 @@ indicator.colors = {
 --- Initializes or refreshes the GUI.
 --- @param self ShapeClass The sensor class
 function indicator.init(self)
+    fprint({type = "init"}, "Initializing indicator")
     if self.cl.indicator then
         -- trying to init the indicator again after it's already been initalized
         return
@@ -32,6 +33,7 @@ end
 
 -- Changes the color of the indicator.
 function indicator.setColor(self, color)
+    fprint({}, "Changing indicator color to: " .. color)
     local indicator = self.cl.indicator
     if indicator and indicator.color ~= color then
         indicator.color = color
@@ -39,9 +41,10 @@ function indicator.setColor(self, color)
     end
 end
 
---- Sets the color of the indicator.
+--- Allows the server to set client side colors.
 --- @param self ShapeClass The sensor class
 --- @param color Color The color to set
 function sensor:client_setIndicatorColor(color)
+    fprint({type = "network"}, "Received indicator color: " .. color)
     indicator.setColor(self, color)
 end

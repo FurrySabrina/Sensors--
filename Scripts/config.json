@@ -65,5 +65,5 @@
         "detect_color": true
         // no upgrade for this since its level 5 (max)
     },
-    "slider_max" : 20
+    "range_max" : 20
 }
