@@ -1,0 +1,58 @@
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Canvas" skin="Canvas" name="BackPanel" position_real="0 0 0.3541666666666667 0.6388888888888888">
+		<Widget type="Widget" skin="BackgroundInteractableWide" name="PlusPlusSettingsBackground" position_real="0 0 1 1">
+			<Widget type="Widget" skin="BackgroundPopup" position_real="0 0.2318840579710145 1 0.7681159420289855" />
+		</Widget>
+		<Widget type="Canvas" skin="Canvas" name="PlusPlusSettingsContainer" position_real="0 0 1 1">
+			<Widget type="Button" align="Left Bottom" skin="InventoryTab" name="Tab_1" position_real="0.11029411764705882 0.16666666666666666 0.17647058823529413 0.06521739130434782">
+				<Property key="Caption" value="Tab 1" />
+				<Property key="FontName" value="InventoryTabLabel" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="Button" align="Left Bottom" skin="InventoryTab" name="Tab_2" position_real="0.3161764705882353 0.16666666666666666 0.17647058823529413 0.06521739130434782">
+				<Property key="Caption" value="Tab 2" />
+				<Property key="FontName" value="InventoryTabLabel" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="Button" align="Left Bottom" skin="InventoryTab" name="Tab_4" position_real="0.7132352941176471 0.16666666666666666 0.17647058823529413 0.06521739130434782">
+				<Property key="Caption" value="Tab 4" />
+				<Property key="FontName" value="InventoryTabLabel" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="TextBox" skin="TextBox" name="Name" position_real="0 0.06521739130434782 1 0.057971014492753624">
+				<Property key="Caption" value="@{PLUSPLUS_SETTINGS_TITLE}" />
+				<Property key="FontName" value="SM_HeaderLarge_Wide" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="Button" skin="DressbotArrowLeft" name="Last_Tab" position_real="0.029411764705882353 0.17391304347826086 0.058823529411764705 0.057971014492753624">
+				<Property key="Colour" value="#2D2D2F" />
+			</Widget>
+			<Widget type="Canvas" skin="SearchBarBackground" name="Setting1" position_real="0.029411764705882353 0.2971014492753623 0.45588235294117646 0.08695652173913043">
+				<Widget type="TextBox" skin="TextBoxSkin" name="SettingTitle1" position_real="0.016129032258064516 0.08333333333333333 0.7903225806451613 0.3333333333333333">
+					<Property key="Caption" value="Method : #FFD54FLine" />
+					<Property key="FontName" value="SM_Header" />
+					<Property key="TextAlign" value="Left VCenter" />
+				</Widget>
+				<Widget type="EditBox" skin="TextBoxSkin" name="SettingDesc1" position_real="0.016129032258064516 0.4166666666666667 0.7903225806451613 0.5">
+					<Property key="TextAlign" value="Left Top" />
+					<Property key="FontName" value="SM_HotbarBinding" />
+					<Property key="Caption" value="Detection Method" />
+					<Property key="ReadOnly" value="true" />
+					<Property key="WordWrap" value="true" />
+					<Property key="MultiLine" value="true" />
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="Setting1Edit" position_real="0.8225806451612904 0.08333333333333333 0.16129032258064516 0.8333333333333334">
+					<Widget type="Widget" skin="BeaconIconColor" name="Setting1Color" position_real="0.1 0.1 0.8 0.8" />
+				</Widget>
+			</Widget>
+			<Widget type="Button" align="Left Bottom" skin="InventoryTab" name="Tab_3" position_real="0.5147058823529411 0.16666666666666666 0.17647058823529413 0.06521739130434782">
+				<Property key="Caption" value="Tab 3" />
+				<Property key="FontName" value="InventoryTabLabel" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+			<Widget type="Button" skin="DressbotArrowRight" name="Next_Tab" position_real="0.9117647058823529 0.17391304347826086 0.058823529411764705 0.057971014492753624">
+				<Property key="Colour" value="#2D2D2F" />
+			</Widget>
+		</Widget>
+	</Widget>
+</MyGUI>

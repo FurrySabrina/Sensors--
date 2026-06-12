@@ -19,7 +19,7 @@
         "max_distance": 4,
         "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_info": "#9f9e9e#{CONTROLLER_PISTON_RANGE}: #cff42b+4",
         "upgrade_uuid": "cf46678b-c947-4267-ba85-f66930f5faa4"
     },
 
@@ -30,7 +30,7 @@
         "max_distance": 8,
         "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_info": "#9f9e9e#{CONTROLLER_PISTON_RANGE}: #cff42b+4",
         "upgrade_uuid": "90fc3603-3544-4254-97ef-ea6723510961"
     },
 
@@ -41,7 +41,7 @@
         "max_distance": 12,
         "upgrade": true,
         "upgrade_cost": 1,
-        "upgrade_info": "#9f9e9eRange: #cff42b+4",
+        "upgrade_info": "#9f9e9e#{CONTROLLER_PISTON_RANGE}: #cff42b+4",
         "upgrade_uuid": "de018bc6-1db5-492c-bfec-045e63f9d64b"
     },
 
@@ -53,7 +53,7 @@
         "detect_color": false,
         "upgrade": true,
         "upgrade_cost": 3,
-        "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9eRange: #cff42b+4",
+        "upgrade_info": "#9f9e9eColor Filter: #cff42bEnabled\n#9f9e9e#{CONTROLLER_PISTON_RANGE}: #cff42b+4",
         "upgrade_uuid": "20dcd41c-0a11-4668-9b00-97f278ce21af"
     },
 

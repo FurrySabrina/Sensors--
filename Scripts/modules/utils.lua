@@ -1,31 +1,34 @@
-local clear_line = "\27[2K\r"
-local sensor_start = "\27[0;97m[Sensors++] "
+local do_ansi = true -- ! DISABLE IF ANSI CONSOLE IS NOT AVAILABLE !
+
+local clear_line = do_ansi and "\27[2K\r" or ""
+local sensor_start = do_ansi and "\27[0;97m[Sensors++] " or "[Sensors++] "
+local func_color = do_ansi and "\27[38;5;135m" or ""
 
 local side_colors = {
-    server = "\27[38;5;46m(Server) ",
-    client = "\27[38;5;69m(Client) ",
-    global = "\27[38;5;51m(Global) "
+    server = do_ansi and "\27[38;5;46m(Server) " or "(Server) ",
+    client = do_ansi and "\27[38;5;69m(Client) " or "(Client) ",
+    global = do_ansi and "\27[38;5;51m(Global) " or "(Global) "
 }
 
 local type_colors = {
-    init = "\27[38;5;50m(Initialization) ",
-    io = "\27[38;5;37m(IO) ",
-    network = "\27[38;5;39m(Network) ",
-    gui = "\27[38;5;211m(GUI) ",
-    interaction = "\27[38;5;220m(Interaction) ",
-    update = "\27[38;5;147m(Update) ",
-    tick = "\27[38;5;107m(Tick) ",
-    fallback = "\27[38;5;208m(Fallback) ",
-    config = "\27[38;5;111m(Config) ",
-    format = "\27[38;5;251m(Format) ",
-    debug = "\27[38;5;198m(Debug) "
+    init = do_ansi and "\27[38;5;50m(Initialization) " or "(Initialization) ",
+    io = do_ansi and "\27[38;5;37m(IO) " or "(IO) ",
+    network = do_ansi and "\27[38;5;39m(Network) " or "(Network) ",
+    gui = do_ansi and "\27[38;5;211m(GUI) " or "(GUI) ",
+    interaction = do_ansi and "\27[38;5;220m(Interaction) " or "(Interaction) ",
+    update = do_ansi and "\27[38;5;147m(Update) " or "(Update) ",
+    tick = do_ansi and "\27[38;5;107m(Tick) " or "(Tick) ",
+    fallback = do_ansi and "\27[38;5;208m(Fallback) " or "(Fallback) ",
+    config = do_ansi and "\27[38;5;111m(Config) " or "(Config) ",
+    format = do_ansi and "\27[38;5;251m(Format) " or "(Format) ",
+    debug = do_ansi and "\27[38;5;198m(Debug) " or "(Debug) "
 }
 
 local print_colors = {
-    print = "\27[0;92m",
-    info = "\27[1;97m",
-    warning = "\27[0;33m",
-    error = "\27[1;91m"
+    print = do_ansi and "\27[0;92m" or "",
+    info = do_ansi and "\27[1;97m" or "",
+    warning = do_ansi and "\27[0;33m" or "",
+    error = do_ansi and "\27[1;91m" or ""
 }
 
 --- Gets the color for a side.
@@ -86,9 +89,10 @@ local function getPrintString(PType, data, ...)
         args[i] = tostring(arg)
     end
 
-    local startMS = "\27[90m(" .. getTime(os.clock()) .. ") "
+    local startMS = do_ansi and "\27[90m(" .. getTime(os.clock()) .. ") " or ""
+    local func = data.func and func_color .. data.func .. " » " or ""
 
-    return clear_line .. startMS .. sensor_start .. getSide() .. getType(data.type) .. getPrint(PType) .. table.concat(args, " ")
+    return clear_line .. startMS .. sensor_start .. getSide() .. getType(data.type) .. func .. getPrint(PType) .. table.concat(args, " ")
 end
 
 --- Fixes the print function to be more readable.
@@ -127,14 +131,20 @@ end
 --- @param file string File to open
 --- @return table? Data The data (if successful)
 function safe_json_open(file)
-    fprint({type = "io"}, "Opening json file: " .. file)
+    local display_path = file
+    local modDirectory = modDirectory .. "/"
+    if file:sub(1, #modDirectory) == modDirectory then
+        display_path = "Sensors++/" .. file:sub(#modDirectory + 1)
+    end
+    fprint({type = "io", func = "safe_json_open"}, "Opening json file: " .. display_path)
+
     local success, data = pcall(sm.json.open, file)
     if not success then
-        fwarn({type = "io"}, "Error loading json file: " .. file)
+        ferror({type = "io"}, "Error loading json file: " .. file)
         return
     end
     if not data then
-        fwarn({type = "io"}, "No data found in json file: " .. file)
+        ferror({type = "io"}, "No data found in json file: " .. file)
         return
     end
     return data
@@ -285,7 +295,7 @@ debugDraw = {
     --- @param to Vec3 The end position of the line.
     --- @param color Color The color of the line.
     line = function(from, to, color)
-        fprint({type = "debug"}, "Drawing line from: " .. from .. " to: " .. to)
+        fprint({type = "debug", func = "debugDraw.line"}, "Drawing line from: " .. from .. " to: " .. to)
         sm.debugDraw.drawLine(from, to, color)
     end,
     --- Adds a named arrow debug draw.
@@ -293,7 +303,7 @@ debugDraw = {
     --- @param from Vec3 The from position.
     --- @param to? Vec3 The to position. Defaults to the from position plus one along the z axis. (World up vector)
     arrow = function(id, name, from, to, color)
-        fprint({type = "debug"}, "Drawing arrow from: " .. from .. " to: " .. to)
+        fprint({type = "debug", func = "debugDraw.arrow"}, "Drawing arrow from: " .. from .. " to: " .. to)
         sm.debugDraw.addArrow(id.."_"..name, from, to, color)
     end,
     --- Adds a named sphere debug draw.
@@ -301,7 +311,7 @@ debugDraw = {
     --- @param center Vec3 The sphere center.
     --- @param radius? number The sphere radius. Defaults to 0.125.
     sphere = function(id, name, center, radius, color)
-        fprint({type = "debug"}, "Drawing sphere from: " .. center .. " with radius: " .. radius)
+        fprint({type = "debug", func = "debugDraw.sphere"}, "Drawing sphere from: " .. center .. " with radius: " .. radius)
         sm.debugDraw.addSphere(id.."_"..name, center, radius, color)
     end,
     --- Adds a named transform debug draw.
@@ -309,7 +319,7 @@ debugDraw = {
     --- @param origin Vec3 The transform origin.
     --- @param rotation Quat The transform rotation.
     transform = function(id, name, origin, rotation, scale)
-        fprint({type = "debug"}, "Drawing transform from: " .. origin .. " with rotation: " .. rotation .. " and scale: " .. scale)
+        fprint({type = "debug", func = "debugDraw.transform"}, "Drawing transform from: " .. origin .. " with rotation: " .. rotation .. " and scale: " .. scale)
         sm.debugDraw.addTransform(id.."_"..name, origin, rotation, scale)
     end
 }

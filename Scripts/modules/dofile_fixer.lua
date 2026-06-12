@@ -1,6 +1,7 @@
 _dofile = _dofile or dofile
 local __RETURN__ = nil
 local __ARGS__ = nil
+local loaded = {}
 
 --[[
 
@@ -19,7 +20,12 @@ throw(ret1, ret2, ...)
 --- @param file string File to load
 --- @param ... any Arguments to send
 function dofile(file, ...)
-    fprint({type = "io"}, "Loading file: " .. file)
+    if loaded[file] then
+        fwarn({type = "io", func = "dofile"}, "File already loaded: " .. file)
+    else
+        loaded[file] = true
+        fprint({type = "io", func = "dofile"}, "Loading Lua file: " .. file)
+    end
     local previous_return = __RETURN__
     local previous_args = __ARGS__
     
@@ -43,7 +49,7 @@ end
 --- Get arguments from the dofiled script
 --- @return any ... Arguments
 function args()
-    fprint({type = "io"}, "Getting arguments")
+    fprint({type = "io", func = "args"}, "Getting arguments")
     if __ARGS__ == nil then return nil end -- sanity check
     return unpack(__ARGS__)
 end
@@ -51,7 +57,7 @@ end
 --- Send data back to the dofiler script
 --- @param ... any Data to send back
 function return_values(...)
-    fprint({type = "io"}, "Returning values")
+    fprint({type = "io", func = "return_values"}, "Returning values")
     local len = select('#', ...)
 
     if not __RETURN__ then

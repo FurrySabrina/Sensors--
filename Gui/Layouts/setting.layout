@@ -1,0 +1,381 @@
+<MyGUI type="Layout" version="3.2.0">
+	<Widget type="Canvas" skin="Canvas" name="BackPanel" position_real="0 0 0.3541666666666667 0.5">
+		<Widget type="Widget" skin="BackgroundInteractableWide" name="PlusPlusSettingsBackground" position_real="0 0 1 1">
+			<Widget type="TextBox" skin="TextBox" name="Title" position_real="0 0.06481481481481481 1 0.07407407407407407">
+				<Property key="Caption" value="TITLE" />
+				<Property key="FontName" value="SM_HeaderLarge_Wide" />
+				<Property key="TextAlign" value="Center" />
+			</Widget>
+		</Widget>
+	</Widget>
+	<Widget type="Canvas" skin="Canvas" name="Color" position_real="0 0.10648148148148148 0.3541666666666667 0.35648148148148145">
+		<Widget type="Widget" skin="DressbotQueueBackground" name="ColorPallet" position_real="0 0 0.75 0.5064935064935064">
+			<Widget type="Canvas" skin="Canvas" position_real="0.0196078431372549 0.05128205128205128 0.9607843137254902 0.20512820512820512">
+				<Widget type="Button" skin="GenderButton" name="DefaultColor1" position_real="0 0 0.08163265306122448 1">
+					<Widget type="ImageBox" layer="Back" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor2" position_real="0.10204081632653061 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#f5f071" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor3" position_real="0.20408163265306123 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#cbf66f" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor4" position_real="0.30612244897959184 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#68ff88" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor5" position_real="0.40816326530612246 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#7eeded" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor6" position_real="0.5102040816326531 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#4c6fe3" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor7" position_real="0.6122448979591837 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#ae79f0" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor8" position_real="0.7142857142857143 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#ee7bf0" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor9" position_real="0.8163265306122449 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#f06767" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor10" position_real="0.9183673469387755 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#eeaf5c" />
+					</Widget>
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" position_real="0.0196078431372549 0.28205128205128205 0.9607843137254902 0.20512820512820512">
+				<Widget type="Button" skin="GenderButton" name="DefaultColor11" position_real="0 0 0.08163265306122448 1">
+					<Widget type="ImageBox" layer="Back" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#7f7f7f" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor12" position_real="0.10204081632653061 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#e2db13" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor13" position_real="0.20408163265306123 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#a0ea00" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor14" position_real="0.30612244897959184 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#19e753" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor15" position_real="0.40816326530612246 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#2ce6e6" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor16" position_real="0.5102040816326531 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#0a3ee2" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor17" position_real="0.6122448979591837 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#7514ed" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor18" position_real="0.7142857142857143 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#cf11d2" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor19" position_real="0.8163265306122449 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#d02525" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor20" position_real="0.9183673469387755 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#df7f00" />
+					</Widget>
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" position_real="0.0196078431372549 0.5128205128205128 0.9607843137254902 0.20512820512820512">
+				<Widget type="Button" skin="GenderButton" name="DefaultColor21" position_real="0 0 0.08163265306122448 1">
+					<Widget type="ImageBox" layer="Back" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#4a4a4a" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor22" position_real="0.10204081632653061 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#817c00" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor23" position_real="0.20408163265306123 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#577d07" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor24" position_real="0.30612244897959184 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#0e8031" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor25" position_real="0.40816326530612246 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#118787" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor26" position_real="0.5102040816326531 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#0f2e91" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor27" position_real="0.6122448979591837 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#500aa6" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor28" position_real="0.7142857142857143 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#720a74" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor29" position_real="0.8163265306122449 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#7c0000" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor30" position_real="0.9183673469387755 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#673b00" />
+					</Widget>
+				</Widget>
+			</Widget>
+			<Widget type="Canvas" skin="Canvas" position_real="0.0196078431372549 0.7435897435897436 0.9607843137254902 0.20512820512820512">
+				<Widget type="Button" skin="GenderButton" name="DefaultColor31" position_real="0 0 0.08163265306122448 1">
+					<Widget type="ImageBox" layer="Back" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#222222" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor32" position_real="0.10204081632653061 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#323000" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor33" position_real="0.20408163265306123 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#375000" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor34" position_real="0.30612244897959184 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#064023" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor35" position_real="0.40816326530612246 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#0a4444" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor36" position_real="0.5102040816326531 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#0a1d5a" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor37" position_real="0.6122448979591837 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#35086c" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor38" position_real="0.7142857142857143 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#520653" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor39" position_real="0.8163265306122449 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#560202" />
+					</Widget>
+				</Widget>
+				<Widget type="Button" skin="GenderButton" name="DefaultColor40" position_real="0.9183673469387755 0 0.08163265306122448 1">
+					<Widget type="ImageBox" skin="BeaconIconColor" position_real="0.125 0.125 0.75 0.75">
+						<Property key="NeedKey" value="false" />
+						<Property key="NeedMouse" value="false" />
+						<Property key="Colour" value="#472800" />
+					</Widget>
+				</Widget>
+			</Widget>
+		</Widget>
+		<Widget type="Widget" skin="DressbotQueueBackground" position_real="0.7426470588235294 0 0.25735294117647056 0.4155844155844156">
+			<Widget type="ImageBox" skin="ImageBox" name="DisplayColor" position_real="0.05714285714285714 0.0625 0.8857142857142857 0.875">
+				<Property key="ImageTexture" value="$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2/Gui/Icon/Color_Icon_Big.png" />
+				<Property key="Colour" value="#FF0000" />
+			</Widget>
+		</Widget>
+		<Widget type="Widget" skin="DressbotQueueBackground" name="RGB Sliders" position_real="0 0.4935064935064935 0.625 0.5064935064935064">
+			<Widget type="TextBox" skin="GenderButton" position_real="0.023529411764705882 0.05128205128205128 0.9529411764705882 0.28205128205128205">
+				<Property key="Caption" value="R:" />
+				<Property key="TextAlign" value="Left VCenter" />
+				<Property key="FontName" value="SM_SubHeader" />
+				<Property key="TextColour" value="#FF0000" />
+				<Property key="Colour" value="#FF0000" />
+				<Widget type="Canvas" skin="PanelEmpty" name="Red_Slider" position_real="0.18518518518518517 0.09090909090909091 0.8024691358024691 0.8181818181818182" />
+				<Widget type="EditBox" skin="EditBoxEmpty" name="Red_Value" position_real="0.09876543209876543 0 0.07407407407407407 1">
+					<Property key="FontName" value="SM_ToolTipText" />
+					<Property key="Caption" value="255" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+			</Widget>
+			<Widget type="TextBox" skin="GenderButton" position_real="0.023529411764705882 0.358974358974359 0.9529411764705882 0.28205128205128205">
+				<Property key="Caption" value="G:" />
+				<Property key="TextAlign" value="Left VCenter" />
+				<Property key="FontName" value="SM_SubHeader" />
+				<Property key="TextColour" value="#00FF00" />
+				<Property key="Colour" value="#00FF00" />
+				<Widget type="Canvas" skin="PanelEmpty" name="Green_Slider" position_real="0.18518518518518517 0.09090909090909091 0.8024691358024691 0.8181818181818182" />
+				<Widget type="EditBox" skin="EditBoxEmpty" name="Green_Value" position_real="0.09876543209876543 0 0.07407407407407407 1">
+					<Property key="FontName" value="SM_ToolTipText" />
+					<Property key="Caption" value="255" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+			</Widget>
+			<Widget type="TextBox" skin="GenderButton" position_real="0.023529411764705882 0.6666666666666666 0.9529411764705882 0.28205128205128205">
+				<Property key="Caption" value="B:" />
+				<Property key="TextAlign" value="Left VCenter" />
+				<Property key="FontName" value="SM_SubHeader" />
+				<Property key="TextColour" value="#0000FF" />
+				<Property key="Colour" value="#0000FF" />
+				<Widget type="Canvas" skin="PanelEmpty" name="Blue_Slider" position_real="0.18518518518518517 0.09090909090909091 0.8024691358024691 0.8181818181818182" />
+				<Widget type="EditBox" skin="EditBoxEmpty" name="Blue_Value" position_real="0.09876543209876543 0 0.07407407407407407 1">
+					<Property key="FontName" value="SM_ToolTipText" />
+					<Property key="Caption" value="255" />
+					<Property key="TextAlign" value="Center" />
+				</Widget>
+			</Widget>
+		</Widget>
+		<Widget type="Widget" skin="DressbotQueueBackground" position_real="0.7426470588235294 0.4025974025974026 0.25735294117647056 0.1038961038961039">
+			<Widget type="EditBox" skin="EditBoxEmpty" position_real="0.02857142857142857 0.125 0.9428571428571428 0.75">
+				<Property key="Caption" value="FF0000" />
+				<Property key="FontName" value="SM_Header" />
+				<Property key="TextAlign" value="Center" />
+				<Property key="ReadOnly" value="true" />
+			</Widget>
+		</Widget>
+		<Widget type="Widget" skin="DressbotQueueBackground" name="HSV Sliders" position_real="0.6176470588235294 0.4935064935064935 0.38235294117647056 0.5064935064935064">
+			<Widget type="ImageBox" skin="ImageBox" name="Hue_Map" position_real="0.8461538461538461 0.10256410256410256 0.11538461538461539 0.7948717948717948">
+				<Property key="ImageTexture" value="$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2/Gui/Icon/Color_HSV_Hue.png" />
+			</Widget>
+			<Widget type="Canvas" skin="PanelEmpty" name="Hue_Slider_Back" position_real="0.75 0.02564102564102564 0.09615384615384616 0.9487179487179487">
+				<Widget type="Canvas" skin="PanelEmpty" name="Hue_Slider" position_real="0 0 2.4 1" />
+			</Widget>
+			<Widget type="ImageBox" skin="ImageBox" name="HSV_Hue_Display" position_real="0.11538461538461539 0.07692307692307693 0.5576923076923077 0.7435897435897436">
+				<Property key="ImageTexture" value="$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2/Gui/Icon/Color_Icon_Rounded.png" />
+				<Property key="Colour" value="#ff0000" />
+			</Widget>
+			<Widget type="ImageBox" skin="ImageBox" name="Saturation_Map" position_real="0.11538461538461539 0.07692307692307693 0.5576923076923077 0.7435897435897436">
+				<Property key="ImageTexture" value="$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2/Gui/Icon/Color_HSV_Saturation.png" />
+			</Widget>
+			<Widget type="ImageBox" skin="ImageBox" name="Value_Map" position_real="0.11538461538461539 0.07692307692307693 0.5576923076923077 0.7435897435897436">
+				<Property key="ImageTexture" value="$CONTENT_f0b6b45d-fa50-4ede-b919-7e27d9f339c2/Gui/Icon/Color_HSV_Value.png" />
+			</Widget>
+			<Widget type="Canvas" skin="PanelEmpty" name="Value_Slider_Back" position_real="0.038461538461538464 0.05128205128205128 0.07692307692307693 0.7948717948717948">
+				<Widget type="Canvas" skin="PanelEmpty" name="Value_Slider" position_real="0 -0.03225806451612903 2.25 1.064516129032258" />
+			</Widget>
+			<Widget type="Canvas" skin="PanelEmpty" name="Saturation_Slider_Back" position_real="0.09615384615384616 0.8205128205128205 0.5961538461538461 0.10256410256410256">
+				<Widget type="Canvas" skin="PanelEmpty" name="Saturation_Slider" position_real="0 -1 1 2.25" />
+			</Widget>
+		</Widget>
+	</Widget>
+</MyGUI>

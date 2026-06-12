@@ -1,3 +1,4 @@
 {
     // because the game uses #{...} for translations, im going to use @{...} instead
+    "@{OPEN_SETTINGS}": "打开设置"
 }
